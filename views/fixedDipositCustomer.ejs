@@ -1,0 +1,20 @@
+<%-include("partials2.o/header")-%>
+<div class="upperofFDC" ></div>
+<div class="lowerofMS" ></div>
+<form class="transfer" action="/fixedDiposit/request/<%= user %>" method="POST">
+    <div class="inputTr" >
+      <h3 class="tHeader">BL Fixed Diposit</h3>
+        <h5>Duration</h5>
+        <input name="duration" placeholder="Months" type="number" min="1" autocomplete="off" required>
+        <p><span style="color: red;">*</span>Enter the time period in months</p>
+        <h5>Enter Amount</h5>
+        <input name="fixedAmount" type="number" min="1000" autocomplete="off" required >
+    </div>
+    <input style="display: none;" name="accountNo" value="<%= customer.AccountNo %>" type="text">
+    <input style="display: none;" name="activeAmount" value="<%= customer.currentTotalAmount %>" type="text">
+    <div class="searchBtn">
+      <button onclick="myAfterClick()" type="submit">Save</button>
+  </div>
+</form>
+
+<%-include("partials2.o/footer")-%> 

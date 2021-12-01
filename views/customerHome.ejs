@@ -1,0 +1,211 @@
+<%-include("partials2.o/header")-%>
+    <div class="DepositEntry">
+        <div class="cDetails">
+            <img class="profilePic" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+        <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+            <div class="cInfo">
+                <% if(customer.gender==="Male" ){ %>
+                    <div class="cKey">
+                        <h4>Name</h4>
+                    </div>:-
+                    <div class="cValue">
+                        <h4>Mr. <%= customer.userfName %>
+                                <%= customer.usermName %>
+                                    <%= customer.userlName %>
+                                        <h4>
+                    </div>
+                    <% } %>
+                        <% if(customer.gender==="Female" && customer.marriageStatus==="Married" ){ %>
+                            <div class="cKey">Name</div>:-
+                            <div class="cValue">
+                                <h4>Mrs. <%= customer.userfName %>
+                                        <%= customer.usermName %>
+                                            <%= customer.userlName %>
+                                                <h4>
+                            </div>
+                            <% } %>
+                                <% if(customer.gender==="Female" && customer.marriageStatus==="single" ){ %>
+                                    <div class="cKey">Name</div>:-
+                                    <div class="cValue">
+                                        <h4>Miss. <%= customer.userfName %>
+                                                <%= customer.usermName %>
+                                                    <%= customer.userlName %>
+                                                        <h4>
+                                    </div>
+                                    <% } %>
+                                        <% if(customer.gender==="Other" ){ %>
+                                            <div class="cKey">Name</div>:-
+                                            <div class="cValue">
+                                                <h4>
+                                                    <%= customer.userfName %>
+                                                        <%= customer.usermName %>
+                                                            <%= customer.userlName %>
+                                                                <h4>
+                                            </div>
+                                            <% } %>
+            </div>
+        </div>
+        <div class="dEntry">
+            <div class="cInfo">
+                <div class="cKey">
+                    <h3>Current Balance</h3>
+                </div>:-
+                <div class="cValue">
+                    <h3>
+                        <%= customer.currentTotalAmount %>/-
+                    </h3>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Account No.</div>:-
+                <div class="cValue">
+                    <%= customer.AccountNo %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Father's Name</div>:-
+                <div class="cValue">Mr. <%= customer.ffName %>
+                        <%= customer.fmName %>
+                            <%= customer.flName %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Date Of Birth</div>:-
+                <div class="cValue">
+                    <%= customer.dob %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Pan Card No.</div>:-
+                <div class="cValue">
+                    <%= customer.panNo %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Phone No.</div>:-
+                <div class="cValue">
+                    <%= customer.phone %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Email ID</div>:-
+                <div class="cValue">
+                    <%= customer.email %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Voter Card ID</div>:-
+                <div class="cValue">
+                    <%= customer.voter %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Adhar Card No.</div>:-
+                <div class="cValue">
+                    <%= customer.adhar %>
+                </div>
+            </div>
+            <div class="cInfo">
+                <div class="cKey">Address</div>:-
+                <div class="cValue">
+                    <%= customer.address %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subDetailsCont">
+        <div class="container">
+            <div class="row">
+                <% if( customer.loanAplicationEntery[0] ){ %>
+                    <div class="col-xxl-3 col-lg-4 col-12">
+                        <div>
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <p class="titaldt">Loan Amount :- </p>
+                            <p class="valuedt">
+                                <%= customer.loanAplicationEntery[0].sanctionAmountLoan %>
+                            </p>
+                            <p class="titaldt">EMI Starting Last Date :- </p>
+                            <p class="valuedt">
+                                <%= customer.loanAplicationEntery[0].EmiStatrtLastDate %>
+                            </p>
+                            <p class="titaldt">Loan Type :- </p>
+                            <p class="valuedt">
+                                <%= customer.loanAplicationEntery[0].loanType %>
+                            </p>
+                            <p class="titaldt">Total Withdrawable Loan Amount Left :- </p>
+                            <p class="valuedt">
+                                <%= customer.loanAplicationEntery[0].totalAmountFromLoan %>
+                            </p>
+                            <p class="titaldt">Total Payable Amount :- </p>
+                            <p class="valuedt">
+                                <%= customer.loanAplicationEntery[0].totalAmountWithdrawal %>
+                            </p>
+                            <p class="titaldt">Date of Loan Sanctioned :- </p>
+                            <p class="valuedt">
+                                <%= customer.loanAplicationEntery[0].dateLoanTake %>
+                            </p>
+                            <% if(customer.loanEMIEntery[0]) { %>
+                                <p style="color: red; background-color: salmon;">Loan has been locked as EMI is running
+                                </p>
+                                <% } %>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% if(customer.loanEMIEntery[0]) { %>
+                            <div class="col-xxl-3 col-lg-4 col-12">
+                                <div>
+                                    <i class="fas fa-percent"></i>
+                                    <p class="titaldt">EMI Plan Code :- </p>
+                                    <p class="valuedt">
+                                        <%= customer.loanEMIEntery[0].loanPlanCode %>
+                                    </p>
+                                    <p class="titaldt">Number of Installments Left :- </p>
+                                    <p class="valuedt">
+                                        <%= customer.loanEMIEntery[0].noInstallments %>
+                                    </p>
+                                    <p class="titaldt">EMI Amount :- </p>
+                                    <p class="valuedt">
+                                        <%= customer.loanEMIEntery[0].loanEmiAmount %>
+                                    </p>
+                                    <p class="titaldt">Total Payable Left :- </p>
+                                    <p class="valuedt">
+                                        <%= customer.loanEMIEntery[0].totalPayable %>
+                                    </p>
+                                    <p class="titaldt">EMI Starting Date :- </p>
+                                    <p class="valuedt">
+                                        <%= customer.loanEMIEntery[0].emiStartDate %>
+                                    </p>
+                                    <p class="titaldt">Next Installment Date :- </p>
+                                    <p class="valuedt">
+                                        <%= customer.loanEMIEntery[0].dateIntarestCalculate %>
+                                    </p>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% fixedDiposits.forEach(function(fixedDiposit) { %>
+                                    <div class="col-xxl-3 col-lg-4 col-12">
+                                        <div>
+                                            <i class="fas fa-piggy-bank"></i>
+                                            <p class="titaldt">Fixed Amount :- </p>
+                                            <p class="valuedt">
+                                                <%= fixedDiposit.primeAmount %>
+                                            </p>
+                                            <p class="titaldt">Total Amount After Maturitiy :-</p>
+                                            <p class="valuedt">
+                                                <%= fixedDiposit.finalAmount %>
+                                            </p>
+                                            <p class="titaldt">Fixed Diposit Date :-</p>
+                                            <p class="valuedt">
+                                                <%= fixedDiposit.startingDate %>
+                                            </p>
+                                            <p class="titaldt">Maturitiy Date :-</p>
+                                            <p class="valuedt">
+                                                <%= fixedDiposit.maturitiyDate %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <% }) %>
+            </div>
+        </div>
+    </div>
+    <%-include("partials2.o/footer")-%>

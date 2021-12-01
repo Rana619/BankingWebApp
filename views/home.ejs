@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:ital,wght@1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- bootstrap -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Indie+Flower&family=Lobster&display=swap" rel="stylesheet">   
+        <link rel="stylesheet" href="/homeStyle.css">
+    <title>Bank Lynx</title>
+</head>
+<body onload="myFunction()" >
+    <div id="preLoader" >
+      <div class="main">
+        <div class="circle first">
+        </div>
+        <div class="circle two">
+        </div>
+      </div> 
+    </div>
+        <nav>
+            <div class="logo">
+                <img src="/img/mainLogo.png" alt="">
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Help">Help</a></li>
+                <li><a href="#ConectUs">Contact</a></li>
+                <li><a onclick="myAfterClick()" href="/login">join</a></li>
+            </ul>
+        </nav>
+<section id="Home">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/img/images (4).jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block d-md-block">
+              <h2>BL Flexipay Home Loan</h2>
+              <h4>Flex Your Imagination Not Your Income</h4>
+              <p>The feeling of attachment togetherness we understand what a home means<br/><span style="color: green; text-decoration: underline;">Home Loans start from 8.35%* p.a.</span></p>
+              <a href="">Learn more >></a>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/img/images (6).jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block d-md-block">
+              <h2>Benefits Of Saving Account</h2>
+              <h6><i class="fas fa-credit-card"></i>ATM cum debit card and passbook facility is provided totally free of cost</h6>
+              <h6><i class="fas fa-globe"></i>facility and online funds transfer facility is available</h6>
+              <h6><i class="fas fa-chart-line">No deposit limit</i></h6>     
+              <a href="">Learn more >></a>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/img/images (5).jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block d-md-block">
+              <h2>Senior Citizens Savings Scheme</h2>
+          <h6><i class="fas fa-check-square"></i>Current interest rate - 8.70%</h6>
+          <h6><i class="fas fa-check-square"></i>Invest upto Rs. 15 Lakhs</h6>
+          <h6><i class="fas fa-check-square"></i>Tax benefits upto Rs. 1.5 Lakh</h6>
+          <h6><i class="fas fa-check-square"></i>Flexible tenure of 5 years</h6>
+          <h5>#ENJOY your SECOND innings</h5>
+            <a href="">Learn more >></a>
+              </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</section>
+<section class="feather" id="services" >
+  <h1><span class="fisth" >FOR OUR</span> <span class="sceondh" >Customers</span> </h1>
+  <h3>Your peace of mind and well-being is our top priority. Take advantage our Exclusive offers</h3>
+  <div class="boxCont">
+    <div>
+      <i class="fas fa-praying-hands"></i>
+      <h5>Self Service</h5>
+      <p>
+        <span>>></span> Register for Internet & Mobile Banking<br/>
+        <span>>></span> Update your details<br/>
+        <span>>></span> Download the Mobile Banking App
+      </p>
+     </div>
+    <div>
+      <i class="fab fa-whmcs"></i>
+      <h5>Services</h5>
+      <p>
+        <span>>></span> Home loans<br/>
+        <span>>></span> Bank accounts<br/>
+        <span>>></span> Credit cards<br/>
+        <span>>></span> Personal loans
+      </p>
+    </div>
+    <div>
+      <i class="fas fa-store"></i>
+      <h5>Business banking</h5>
+      <p>
+        <span>>></span> Bank accounts<br/>
+        <span>>></span> Credit cards<br/>
+        <span>>></span> Payment solutions<br/>
+        <span>>></span> Business loans
+      </p>
+    </div>
+  </div>
+</section>
+<section class="More" >
+  <h3>Things you should know</h3>
+  <p>*Car loan comparison rate calculated on a loan amount of 
+    ₹22,00,000 over a term of 5 years based on monthly repayments, 
+    for secured loans only. The estimated total amount repayable 
+    including fees is ₹25,60,826.02. WARNING: This comparison rate is 
+    true only for the examples given and may not include all fees and charges. 
+    Different terms, fees or other loan amounts might result in a different comparison rate. 
+  </p>
+  <p>
+    *Home loan comparison rate based on a ₹1,11,64,125 loan over 25 years. 
+    Fixed loan comparison rate applies only for loans with an LVR of 80% 
+    or less and a loan amount of ₹1,10,60,100 to ₹1,90,50,000 WARNING: This comparison 
+    rate is true only for the examples given and may not include all fees and charges. 
+    Different terms, fees or other loan amounts might result in a different comparison rate.
+  </p>
+  <p>
+    Interest rates are on a per annum basis. Rates are correct as stated and subject to change 
+    without notice. Rates shown are for new loans and do not apply to switches or internal refinances.
+  </p>
+  <p>
+    1This is the rate for new owner occupied lending for borrowings up to 90% LVR, 
+    inclusive of Lenders Mortgage insurance (if applicable).
+  </p>
+  <p>
+    Fixed rate loans may be subject to significant break costs, the terms and details 
+    of which are specified in your credit contract. Rate Guarantee may be applied. 
+  </p>
+  <p>
+    All fixed rates are fixed for the period stated and revert to the Standard Variable 
+    rate applying at expiration of the fixed term.
+  </p>
+  <p>
+    To approved applicants only. Conditions, criteria and fees apply.
+  </p>
+  <p>
+    Loan to Value Ratio (LVR) is the loan amount divided by the value of 
+    your security property (determined by Heritage Bank at assessment), 
+    multiplied by 100. Owner Occupied loans have a maximum LVR of 95%, Investment loans 
+    have a maximum LVR of 90% and Living Equity has a maximum LVR of 85%.
+  </p>
+  <p>
+    This advice has been prepared without taking into account your objectives, 
+    financial situation or needs. Because of this you should, before acting on this 
+    information, consider its appropriateness having regard to your objectives, 
+    financial situation or needs.
+  </p>
+  <p>
+    Generate a personalised Key Fact Sheet based on your loan amount, 
+    term and repayments. This tool is provided to help you compare home loans 
+    from Heritage with other financial institutions.
+  </p>
+  <p>
+    * Apple Pay works with iPhone SE and later in stores, apps and websites 
+    in Safari; with Apple Watch in stores and apps; with iPad Pro, iPad Air 2 
+    and iPad mini 3 and later in apps and websites; and with Mac in Safari with an 
+    Apple Pay enabled iPhone 6 or later or Apple Watch. For a list of compatible Apple 
+    Pay devices, 
+  </p>
+  <p>
+    Apple, the Apple logo, Apple Pay, Apple Watch, iPad, iPhone, Mac, Safari, 
+    Touch ID and Face ID are trademarks of Apple Inc., registered in the U.S. 
+    and other countries.
+  </p>
+  <p>
+    The information provided is intended as general information only and has 
+    been prepared without taking into account your objectives, financial situation or needs. 
+    Because of this you should, before acting on this information, consider its appropriateness 
+    having regard to your objectives, financial situation or needs. You should consider obtaining 
+    personal investment, taxation and/or legal advice before making any decision.  Please read the 
+    relevant terms and conditions and Product Disclosure Statement (available in-branch or at heritage.com.au)
+     to decide whether a product is right for you. To approved applicants only. Condition, 
+     criteria and fees apply. Information could change without notice.
+  </p>
+</section>
+<section id="About">
+  <h3>About Us</h3>
+  <p>
+    Bank Lynx Limited is an Indian financial services company with our registered office in Kolkata, 
+    West Bengal, and corporate office in Mumbai, Maharashtra. Our offers a wide range of banking products 
+    and financial services for corporate and retail customers through a variety of delivery channels 
+    and specialized subsidiaries in the areas of investment banking, life, non-life insurance, venture 
+    capital and asset management. Our bank has a network of 5,275 branches and 15,589 ATMs across India 
+    and has a presence in 17 countries.
+  </p>
+  <p>
+    Our bank has subsidiaries in the United Kingdom and Canada; 
+    branches in United States, Singapore, Bahrain, Hong Kong, Qatar, Oman, Dubai International Finance Centre, 
+    China and South Africa; as well as representative offices in United Arab Emirates, Bangladesh, Malaysia 
+    and Indonesia. Our company's UK subsidiary has also established branches in Belgium and Germany.
+  </p>
+</section>
+<section id="Help">
+  <h3>Help</h3>
+  <p>This is our home page of our website. Here you can see all About our bank, all offers, all different features and many more 
+    If you face any problem just go to our Contect section and contact section where we provide all informetion that will
+    help you to contect with us
+  </p>
+  <p>
+    We are Allways here for you 27x7.So feel free to contact with us and to discuss about you problem or peoblems.
+    If you lost your Debit Card or Credit Card immediately inform us then we will instantly block your card.
+    And we will issue a new card free of cost(5).
+  </p>
+  <p>
+    We also have online banking for our customers. For this service you should have a account in our bank and you should have 
+    your given email id with you. Now you have to go to the top of this web page and click on JOIN option in navbar
+    there you will see the signup button click on that button and it will take you to a another page where
+    we will verifiy you email id. Here you have to give you account no and a strong password for our online banking security.
+    then after submitting this information, you have to give the otp which will  be send in your email id. After otp 
+    verification you can sign-in in your online banking page using the password and the account no.
+  </p>
+  <p>
+    In our online banking webpage you can see all of your details include Loan details(if any), fixed diposit(if any), 
+    and also all of your transaction details you can also see you transaction details of a or many selective day or days.
+  </p>
+  <p>
+    In our online baking system you can also apply for loan(if any don't exist) and also you can payback you loan 
+    usin our online baking. And you can also apply for EMI starting . And if your application is valid then with-in one day 
+    you application will be approved.
+  </p>
+  <p>
+    Through our Online Bankign system you can apply for fixed diposit. You can also send money to another account
+    of our bank just in few seconds. 
+  </p>
+</section>
+<section id = "contectAndAbout">
+  <div>
+    <h5>Bank</h5>
+    <p><a href="">Personal</a></p>
+    <p><a href="">Business</a></p>
+    <p><a href="">Borrow</a></p>
+    <p><a href="">Invest</a></p>
+    <p><a href="">Protect</a></p>
+  </div>
+  <div>
+    <h5>Invest</h5>
+    <p><a href="">Wealth</a></p>
+    <p><a href="">ManageMent</a></p>
+    <p><a href="">Brokerage</a></p>
+  </div>
+  <div>
+    <h5>Company</h5>
+    <p><a href="">About Us</a></p>
+    <p><a href="">Investor</a></p>
+    <p><a href="">Relations</a></p>
+    <p><a href="">Careers</a></p>
+  </div>
+  <div>
+    <h5>Support</h5>
+    <p><a href="">Contact Us</a></p>
+    <p><a href="">Find a Branch</a></p>
+    <p>Routing Number<br/>+91 7056004445</p>
+  </div>
+  </section>
+  <section class="Allcontect" id="ConectUs" >
+    <div>
+      <form action="/contact" method="POST">
+        <div>
+          <h4>Massage Us</h4>
+        </div>
+      <div class="input-cont dark">
+        <input type="text" name="name" autocomplete="off" required>
+        <label for="name" class="label-name">
+          <span class="content-name">
+            Name
+          </span>
+        </label>
+      </div>
+      <div class="input-cont dark">
+        <input type="email" name="mailID" autocomplete="off" required>
+        <label for="name" class="label-name">
+          <span class="content-name">
+            Email
+          </span>
+        </label>
+      </div>
+      <div class="input-cont dark">
+        <input type="number" name="phNo" autocomplete="off" required>
+        <label for="name" class="label-name">
+          <span class="content-name">
+            Phone No.
+          </span>
+        </label>
+      </div>
+        <textarea name="mainMsg" placeholder="Write Message Here....." id="Message" cols="30" rows="10"></textarea>
+
+      <button class="submitBtn" type="submit" ><label class="sendText">send</label><i class="fas fa-paper-plane"></i></button>
+    </form>
+    </div>
+
+    <div class="contectus" >
+      <div class="contactHeader">
+        <img src="/img/onlyLogo.png" alt="">
+        <h3>Connect Us</h3>
+      </div>
+      <p class="contectSmall" >Conditions, fees and charges apply. 
+        These may change or we may introduce new ones in the future. 
+        Full details are available on request. 
+        Lending criteria apply to approval of credit products. 
+        This information does not take your personal objectives, circumstances or needs into account. 
+        Consider its appropriateness to these factors before acting on it. 
+        Read the disclosure documents for your selected product or service, 
+        including the Terms and Conditions or Product Disclosure Statement, before deciding. 
+        Unless otherwise specified, the products and services described on this website 
+        are available only in India from © Bank Lynx - A Division of Westpac Banking 
+        Corporation ABN 33 007 457 141 AFSL and Indian credit licence 233714.
+      </p>
+      <div id="iconsk">
+        <a href=""><i class="fab fa-twitter"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+        <a href=""><i class="fab fa-facebook-f"></i></a>
+        <a href=""><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </section>
+  <section id="footer" >
+  <p>Privacy Policy <span>|</span> Privacy & Security <span>|</span> Bank Lynxshares,inc. <span>|</span> Member FDIC. Equal Housing Lender </p>
+  <p>© 2021 Bank Lynx. All rights reserved</p>
+  </section>
+  <script src="/home.js"></script>
+  <script>
+
+    let preloder = document.getElementById("preLoader");
+    function myFunction()
+    {
+      preloder.style.display = "none";
+    }
+
+    function myAfterClick()
+    {
+      preloder.style.display = "flex";
+    }
+
+  </script>
+</body>
+</html>

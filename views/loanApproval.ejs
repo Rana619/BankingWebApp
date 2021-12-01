@@ -1,0 +1,42 @@
+<%-include("partials/header")-%>
+<div class="register">
+    <h2>Loan Approval</h2>
+    <form spellcheck="false" class="search_form" method="post" action="/approvalsearch/<%= user %>">
+      <div>
+        <input name="uniqueAccountNo" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required />
+        <button type="submit" name="aprovalBtn" value="loanapproval" ><i class="fas fa-search"></i></button>
+      </div>
+    </form>
+
+<div class="DepositEntry">
+<% if(applications[0]){ %>
+<div>
+    <table>
+        <tr>
+            <th>Account No</th>
+            <th>Required Loan Amount</th>
+            <th>Credit Score</th>
+            <th>Date Apply</th>
+            <th>Full Application</th>
+        </tr>
+    <%  applications.forEach(function(application){ %>
+        <tr>
+            <td><a onclick="myAfterClick()" href="/customerDetails/<%= application.AccountNo %>/<%= user %>/direct"><%= application.AccountNo %></a></td>
+            <td><%= application.loanAmount %></td>
+            <td><%= application.creditScore %></td>
+            <td><%= application.dateOfApplication %></td>
+            <td><a onclick="myAfterClick()" href="/loanApplication/<%= application.AccountNo %>/<%= application._id %>/<%= user %>/approval">Application</a></td>
+        </tr>
+    <% }) %>
+    </table>
+</div>
+<% } else { %>
+    <p style="width: 100%; color: red; text-align: center; font-size: 25px;" >Sorry!!! No loan application found.</p>
+<% } %>
+</div>
+</div>
+
+
+
+
+<%-include("partials/footer")-%>

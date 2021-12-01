@@ -1,0 +1,145 @@
+<%-include("partials/header")-%>
+<div class="register">
+  <h2>Loan Application</h2>
+  <!-- first form -->
+<div class="DepositEntry">
+
+  <div class="cDetails">
+    <img class="profilePic" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+    <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+    <div class="cInfo">
+
+    <% if(customer.gender === "Male"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Mr. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Female" && customer.marriageStatus === "Married"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Mrs. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Female" && customer.marriageStatus === "single"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Miss. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Other" ){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4><%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+    
+      </div>
+
+    <div class="cInfo">
+      <div class="cKey">Account No.</div>:-
+      <div class="cValue"><p><%= customer.AccountNo %></p></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Father's Name</div>:-
+      <div class="cValue">Mr. <%= customer.ffName %> <%= customer.fmName %> <%= customer.flName %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Date Of Birth</div>:-
+      <div class="cValue"><%= customer.dob %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Pan Card No.</div>:-
+      <div class="cValue"><%= customer.panNo %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Phone No.</div>:-
+      <div class="cValue"><%= customer.phone %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Email ID</div>:-
+      <div class="cValue"><%= customer.email %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Voter Card ID</div>:-
+      <div class="cValue"><%= customer.voter %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Adhar Card No.</div>:-
+      <div class="cValue"><%= customer.adhar %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Address</div>:-
+      <div class="cValue"><%= customer.address %></div>
+    </div>
+
+<div class="hSign">
+  <h5>Signature:-</h5>
+  <img src="data:image/<%=customer.SignatureImg.contentType%>;base64,
+  <%=customer.SignatureImg.data.toString('base64')%>" alt="Signature">
+</div>
+
+ 
+</div>
+
+<div class="dEntry">
+    <div class="cInfo">
+        <div class="cKey">Annual Family Income</div>:-
+        <div class="cValue"><%= application.FamilyIncome %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Purpose For Loan</div>:-
+        <div class="cValue"><%= application.Purpose %></div>
+      </div>
+
+  <form spellcheck="false" class="registerForm" method="POST" action="/loanEntry/<%= user %>/<%= customer.AccountNo %>/save">
+    <div class="row">
+      <p>Monthly Income</p>
+      <input type="number" name="monthlyIncome" value="<%= application.monthlyIncome %>" />
+    </div>
+
+    <div class="row">
+      <p>Required Loan Amount</p>
+      <input type="number" name="loanAmount" value="<%= application.loanAmount %>" />
+    </div>
+
+    <div class="row">
+      <p>Credit Score</p>
+      <input type="number" name="creditScore" value="<%= application.creditScore %>" />
+    </div>
+
+    <div class="row">
+      <p>Sanction Amount Loan</p>
+      <input name="sanctionAmountLoan" type="number" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Loan Period</p>
+      <input type="number" name="loanPeriod" value="<%= application.loanPeriod %>" />
+    </div>
+
+    <div class="row">
+      <p>Intarest Rate(%)</p>
+      <input name="intarestrate" type="number" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Loan Type</p>
+      <input type="text" name="loanType" value="<%= application.loanType %>" />
+    </div>
+
+    <input style="display: none;" type="text" name="applicationID" value="<%= loanApplicationID %>">
+
+    <div class="row">
+      <p>Nominee For The Loan</p>
+      <input type="text" name="loanNominee" value="<%= application.loanNominee %>" />
+    </div>
+
+    <div class="rowSubmit">
+      <button onclick="myAfterClick()" type="submit" name="buttonType" value="approved">Approved</button>
+    </div>
+ 
+    <div class="rowSubmit">
+      <button onclick="myAfterClick()" type="submit" name="buttonType" value="cancel" >Cancel</button>
+    </div>
+
+  </form> 
+</div>
+</div>
+      
+<%-include("partials/footer")-%>

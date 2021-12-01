@@ -1,0 +1,147 @@
+<%-include("partials/header")-%>
+
+    <div class="register">
+      <h3>Customer Registration</h3>
+        <form spellcheck="false" action="/memberRegister/<%= user %>" method="POST" class="registerForm" enctype="multipart/form-data" >
+          <label for="">Customer Name</label>
+          <div class="allName">
+            <div>
+              <label htmlFor="">First Name</label><br/>
+              <input name="fName" type="text" placeholder="First Name" autocomplete="off" required />
+            </div>
+            <div>
+              <label htmlFor="">Middle Name</label><br/>
+              <input name="mName" type="text" placeholder="Middle Name" autocomplete="off" />
+            </div> 
+            <div>
+              <label htmlFor="">Last Name</label><br/>
+              <input name="lName" type="text" placeholder="Last Name" autocomplete="off" required />
+            </div>
+          </div>
+          
+          <label for="">Customer Father's Name</label>
+          <div class="allName">
+            <div>
+              <label htmlFor="">First Name</label><br/>
+              <input name="ffName" type="text" placeholder="First Name" autocomplete="off" required />
+            </div>
+            <div>
+              <label htmlFor="">Middle Name</label><br/>
+              <input name="fmName" type="text" placeholder="Middle Name" autocomplete="off" />
+            </div>
+            <div>
+              <label htmlFor="">Last Name</label><br/>
+              <input name="flName" type="text" placeholder="Last Name" autocomplete="off" required />
+            </div>
+          </div>
+  
+          <div class="row">
+            <label htmlFor="">Address</label>
+            <textarea  name="address" id="" cols="50" rows="3" autocomplete="off" required ></textarea>
+          </div>
+            
+          <div class="row">
+            <label htmlFor="">Date Of Birth</label>
+            <input name="dob" type="date" autocomplete="off" required />
+          </div>
+
+          <div class="genderTak">
+            <label htmlFor="">Gender</label>
+            <div><input type="radio" name="gender" value="Male" />Male<input type="radio" name="gender" value="Female" />Female<input type="radio" name="gender" value="Other"/>Other</div> 
+          </div>
+
+          <div class="genderTak">
+            <label htmlFor="">Marriage Status</label>
+            <div><input type="radio" name="marriageStatus" value="Married" />Married<input type="radio" name="marriageStatus" value="single" />Single</div> 
+          </div>
+
+          
+          <div class="row">
+            <label htmlFor="">PIN NO.</label>
+            <input name="pin" type="text" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label htmlFor="">Phone no.</label>
+            <input name="phone" type="text" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label htmlFor="">Email</label>
+            <input name="email" type="email" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label htmlFor="">occupation</label>
+            <input name="occupation" type="text" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label >Pan No.</label>
+            <input class="takData" name="panNo" type="text" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label >Voter Card No.</label>
+            <input class="takData" name="voter" type="text" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label >Adhar Card No.</label>
+            <input class="takData" name="adhar" type="text" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label >Nominee Name</label>
+            <input class="takData" name="nominiName" type="text" autocomplete="off" required />
+          </div>
+
+          <div class="row">
+            <label >Nominee Relation</label>
+            <input class="takData" name="nominiRelation" type="text" autocomplete="off" required />
+          </div>
+
+
+
+          <div class="dataDocument">
+            <div>
+              <label >Passpost Size Photo</label>
+            </div>
+            <div>
+              <label for="passportSizePhoto">Passpost Size Photo (img)</label><br/>
+              <input name="passportSizePhoto" id="passportSizePhoto" value="" type="file" required  />
+            </div> 
+          </div>
+
+          <div class="dataDocument">
+            <div>
+              <label >Full Handwritten Signature</label>
+            </div>
+            <div>
+              <label for="Signature">Signature (img)</label><br/>
+              <input name="Signature" id="Signature" value="" type="file" required  />
+            </div>
+          </div>
+
+          <div class="dataDocument">
+            <div>
+              <label for="">Account Type</label>
+              <select name="accountType">
+                <option value="Saving">Saving</option>
+                <option value="Current">Current</option>
+                <option value="Student Account">Student Account</option>
+             </select> 
+            </div>
+            <div>
+            </div>
+          </div>
+  
+          <div class="rowSubmit">
+            <button onclick="myAfterClick()" type="submit">
+              Save
+            </button>
+          </div>
+        </form>
+    </div>
+
+<%-include("partials/footer")-%>

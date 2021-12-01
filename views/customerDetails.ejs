@@ -1,0 +1,285 @@
+<%-include("partials/header")-%>
+
+    <div class="register">
+
+        <h2>Customer Details</h2>
+        <!-- first form -->
+        <form spellcheck="false" class="search_form" method="POST" action="/search/<%= user %>">
+          <div>
+            <input name="uniqueAccountNo" class="code" type= "tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No."autocomplete="off" required />
+            <button class="submit" name="SearchBtn" value="customerDetails" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
+<% if( customerDetailBtn === "all" ) { %>
+<table class="allCustomers">
+  <tr>
+    <th>Photo</th>
+    <th>Name</th>
+    <th>Account No.</th>
+    <th>Current Balance</th>
+    <th>Fixed Diposit</th>
+    <th>Loan</th>
+    <th>EMI</th>
+  </tr>
+ <% for(var i=customers.length-1 ; i>=0 ; i--) { %>
+  <tr>
+    <td><img  src="data:image/<%=customers[i].passportSizePhoto.contentType%>;base64,
+      <%=customers[i].passportSizePhoto.data.toString('base64')%>" alt="img"></td>
+    <td><%= customers[i].userfName %> <%= customers[i].usermName %> <%= customers[i].userlName %></td>
+    <td><a onclick="myAfterClick()" href="/customerDetails/<%= customers[i].AccountNo %>/<%= user %>/direct"><%= customers[i].AccountNo %></a></td>
+    <td><%= customers[i].currentTotalAmount %></td>
+    <% if( customers[i].fixedDipositEntery[0] ) { %>
+      <td>YES (<%= customers[i].fixedDipositEntery.length %>)</td>
+    <% } else { %>
+      <td>NO</td>
+    <% } %>
+    <% if( customers[i].loanAplicationEntery[0] ) { %>
+      <td>YES</td>
+    <% } else { %>
+      <td>NO</td>
+    <% } %>
+    <% if( customers[i].loanEMIEntery[0] ) { %>
+      <td>YES</td>
+    <% } else { %>
+      <td>NO</td>
+    <% } %>
+  </tr>
+ <% } %>
+</table>
+<% } else if( customerDetailBtn === "customerDetailBtn" ){ %>
+<% if(customer) { %>
+<div class="DepositEntry">
+
+    <div class="cDetails">
+        <img class="profilePic" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+        <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+        <div class="cInfo">
+    
+        <% if(customer.gender === "Male"){ %>
+          <div class="cKey">Name</div>:-
+          <div class="cValue"><h4>Mr. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+        <% } %>
+    
+        <% if(customer.gender === "Female" && customer.marriageStatus === "Married"){ %>
+          <div class="cKey">Name</div>:-
+          <div class="cValue"><h4>Mrs. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+        <% } %>
+    
+        <% if(customer.gender === "Female" && customer.marriageStatus === "single"){ %>
+          <div class="cKey">Name</div>:-
+          <div class="cValue"><h4>Miss. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+        <% } %>
+    
+        <% if(customer.gender === "Other" ){ %>
+          <div class="cKey">Name</div>:-
+          <div class="cValue"><h4><%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+        <% } %>
+        
+        
+          </div>
+        <div class="cInfo">
+          <div class="cKey">Account No.</div>:-
+          <div class="cValue"><p><%= customer.AccountNo %></p></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">IFC code</div>:-
+          <div class="cValue"><p><%= customer.IFCcode %></p></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Father's Name</div>:-
+          <div class="cValue">Mr. <%= customer.ffName %> <%= customer.fmName %> <%= customer.flName %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Date Of Birth</div>:-
+          <div class="cValue"><%= customer.dob %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Pan Card No.</div>:-
+          <div class="cValue"><%= customer.panNo %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Phone No.</div>:-
+          <div class="cValue"><%= customer.phone %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Email ID</div>:-
+          <div class="cValue"><%= customer.email %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Voter Card ID</div>:-
+          <div class="cValue"><%= customer.voter %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Adhar Card No.</div>:-
+          <div class="cValue"><%= customer.adhar %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Pin code</div>:-
+          <div class="cValue"><%= customer. pin %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Occupation</div>:-
+          <div class="cValue"><%= customer.occupation %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Account Type</div>:-
+          <div class="cValue"><%= customer.accountType %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Nominee Name</div>:-
+          <div class="cValue"><%= customer.nominiName %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Nominee Relationship</div>:-
+          <div class="cValue"><%= customer.nominiRelationship %></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Banker ID</div>:-
+          <div class="cValue"></div>
+        </div>
+        <div class="cInfo">
+          <div class="cKey">Address</div>:-
+          <div class="cValue"><%= customer.address %></div>
+        </div>
+    
+    <div class="hSign">
+      <h5>Signature:-</h5>
+      <img src="data:image/<%=customer.SignatureImg.contentType%>;base64,
+      <%=customer.SignatureImg.data.toString('base64')%>" alt="Signature">
+    </div>
+
+  </div>
+
+  <div class="dEntry">
+   <h3>Current Amount :- <%= customer.currentTotalAmount %>/-</h3>
+<div class="allDetails">
+<h5> Fixed Diposit  </h5>
+   <% if(customer.fixedDipositEntery[0]){ %>
+    <%  customer.fixedDipositEntery.forEach(function(fixedDiposit){ %>
+    <div class="sBox">
+      <div class="cInfo">
+        <div class="cKey">Fixed Amount</div>:-
+        <div class="cValue"><%= fixedDiposit.primeAmount %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Final Amount</div>:-
+        <div class="cValue"><%= fixedDiposit.finalAmount %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">FD Starting Date</div>:-
+        <div class="cValue"><%= fixedDiposit.startingDate %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Maturitiy Date</div>:-
+        <div class="cValue"><%= fixedDiposit.maturitiyDate %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Banker ID</div>:-
+        <div class="cValue"><%= fixedDiposit.BankerId %></div>
+      </div>
+    </div>
+    <% }) %>
+   <% } else { %> 
+     <p style="color: red;" >No! fixed diposit is exist.</p>
+   <% } %>
+
+  <h5> Loan  </h5>
+   <% if(customer.loanAplicationEntery[0]){ %>
+    <div>
+      <div class="cInfo">
+        <div class="cKey">Sanction Loan Amount</div>:-
+        <div class="cValue"><%= customer.loanAplicationEntery[0].sanctionAmountLoan %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">EMI Statrt Last Date</div>:-
+        <div class="cValue"><%= customer.loanAplicationEntery[0].EmiStatrtLastDate %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Loan Type</div>:-
+        <div class="cValue"><%= customer.loanAplicationEntery[0].loanType %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Amount Left From Loan</div>:-
+        <div class="cValue"><%= customer.loanAplicationEntery[0].totalAmountFromLoan %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Banker ID</div>:-
+        <div class="cValue"><%= customer.loanAplicationEntery[0].BankerId %></div>
+      </div>
+    </div>
+   <% } else { %> 
+     <p style="color: red;" >No! Loan is Taken.</p>
+   <% } %>
+
+  <h5> EMI </h5>
+   <% if(customer.loanEMIEntery[0]){ %>
+    <div>
+      <div class="cInfo">
+        <div class="cKey">Loan Plan Code</div>:-
+        <div class="cValue"><%= customer.loanEMIEntery[0].loanPlanCode %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">No. of Installments</div>:-
+        <div class="cValue"><%= customer.loanEMIEntery[0].noInstallments %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Total Payable</div>:-
+        <div class="cValue"><%= customer.loanEMIEntery[0].totalPayable %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">EMI Amount</div>:-
+        <div class="cValue"><%= customer.loanEMIEntery[0].loanEmiAmount %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Next Date of Installment</div>:-
+        <div class="cValue"><%= customer.loanEMIEntery[0].dateIntarestCalculate %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Banker ID</div>:-
+        <div class="cValue"><%= customer.loanEMIEntery[0].BankerId %></div>
+      </div>
+    </div>
+   <% } else { %> 
+     <p style="color: red;" >No! EMI is Started.</p>
+   <% } %>
+
+   <h5>Last Transaction Details</h5>
+   <% if(customer.transactionEnterys[0]){ %>
+    <div>
+      <div class="cInfo">
+        <div class="cKey">Transaction Amount</div>:-
+        <div class="cValue"><%= latesttranstion.transactionAmount %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Current Total Amount</div>:-
+        <div class="cValue"><%= latesttranstion.totalAmount %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Last Transaction Date</div>:-
+        <div class="cValue"><%= latesttranstion.transactionTime %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Transaction Type</div>:-
+        <div class="cValue"><%= latesttranstion.transactiontype %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Transaction Throught</div>:-
+        <div class="cValue"><%= latesttranstion.transactionTypeMoney %></div>
+      </div>
+      <div class="cInfo">
+        <div class="cKey">Banker ID</div>:-
+        <div class="cValue"><%= latesttranstion.BankerId %></div>
+      </div>
+    </div>
+    <% } else { %> 
+      <p style="color: red;" >No! Transaction still happens.</p>
+    <% } %>
+
+   </div>
+  </div>
+  <% } else { %>
+    <p style="color: red; text-align: center; font-size: 20px;" >Sorry!!! the account number don't exist</p> 
+  <% } %>
+  <% } %>
+</div>
+<%-include("partials/footer")-%>

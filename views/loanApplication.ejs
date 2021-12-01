@@ -1,0 +1,59 @@
+<%-include("partials2.o/header")-%> 
+<form spellcheck="false" class="FormTofill" method="POST" action="/loanApplication/<%= user %>/applied">
+
+  <% if( customer.loanAplicationEntery[0] ){ %>
+
+    <p style="color: rgb(224, 102, 102); font-size: 25px; padding: 10px;">Sorry!!! you can't take any loan from our bank, beacous you already took a loan from our bank
+    </p>
+
+  <% }else{ %>
+
+    <h3>Loan Application</h3>
+    <div class="row">
+      <p>Monthly Income :-</p>
+      <input name="monthlyIncome" type="number" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Family Income From All Source :-</p>
+      <input name="FamilyIncome" type="number" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Required Loan Amount :-</p>
+      <input name="loanAmount" type="number" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Credit Score :-</p>
+      <input name="creditScore" type="number" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Loan Period :-</p>
+      <input name="loanPeriod" type="number" placeholder="Enter the duration in month" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Loan Type :-</p>
+      <input name="loanType" type="text" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Nominee For The Loan :-</p>
+      <input name="loanNominee" type="text" autocomplete="off" required />
+    </div>
+
+    <div class="row">
+      <p>Purpose of the Loan :-</p>
+      <input name="Purpose" type="text" autocomplete="off" required/>
+    </div>
+
+    <div class="rowSubmit">
+      <button onclick="myAfterClick()" type="submit">Save</button>
+    </div>
+    <p><span style="color: red; font-size: 20px; padding: 10px;">*</span>Later you have to show all the documents related to the above information at bank to approve you application, so fill the informations carefully! </p> 
+  <% } %>
+  </form>
+
+<%-include("partials2.o/footer")-%>

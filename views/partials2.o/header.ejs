@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/layoutStyle.css">
+    <title>Bank Lynx</title>
+</head>
+
+<body onload="myFunction()" >
+    <div id="afterClick" >
+        <div class="linekk line-1kk"></div>
+        <div class="linekk line-2kk"></div>
+        <div class="linekk line-3kk"></div>
+        <div class="linekk line-4kk"></div>
+       <div class="linekk line-5kk"></div> 
+    </div>
+    <div class="nav-wrapper">
+        <nav class="navbar">
+            <img src="/img/mainLogo.png" alt="">
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav">
+                <li class="nav-item"><a onclick="myAfterClick()" href="/tab/customer/<%= user %>/transactiondetails">Transaction Details</a></li>
+                <li class="nav-item"><a onclick="myAfterClick()" href="/tab/customer/<%= user %>/moneytransfer">Money Transfer</a></li>
+                <li class="nav-item"><a onclick="myAfterClick()" href="/tab/customer/<%= user %>/loanaplication">Loan Application</a></li>
+                <li class="nav-item"><a onclick="myAfterClick()" href="/tab/customer/<%= user %>/loanemi">EMI Start</a></li>
+                <li class="nav-item"><a onclick="myAfterClick()" href="/tab/customer/<%= user %>/fd">Fixed Deposit</a></li>
+                <li class="nav-item"><a onclick="myAfterClick()" href="/tab/customer/<%= user %>/home">Home</a></li>
+                <li class="nav-item"><a onclick="myAfterClick()" href="/logout">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="allCont"> 

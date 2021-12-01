@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <title>Bank Lynx</title>
+  <style>
+      body{
+        margin: 0px;
+        padding: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #358FEF ;
+        background-image: url("/img/otpBackground.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+      }
+      .midDiv{
+        margin: 0px;
+        padding: 0px;
+        width: 50%;
+        height: 60%;
+        background-color: rgba(255, 255, 255 );
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      h1{
+        text-align: center;
+        color: rgb(42, 190, 42);
+      }
+      h4{
+        text-align: center;
+        margin-top: 30px;
+        color: teal;
+      }
+      .fa-check-circle{
+          color: rgb(30, 182, 30);
+          font-size: 150px;
+          position: relative;
+          top: -70px;
+          background-color: rgba(255, 255, 255 ) ;  
+          border-radius: 50%;
+      }
+      .fa-user-lock{
+        color: rgb(30, 182, 30);
+          font-size: 150px;
+          position: relative;
+          top: -90px;
+          background-color: rgba(255, 255, 255 ) ;  
+          border-radius: 50%;
+          padding: 30px;
+      }
+      a{
+        margin-top: 20px;
+        text-decoration: none;
+        background:none;
+        padding: 4px 12px;
+        font-size: 22px;
+        color: rgb(63, 226, 84);
+        border: 4px solid rgb(63, 226, 84);
+      }
+      a:hover{
+          background-color: rgb(63, 226, 84) ;
+          color: white;
+      }
+      @media only screen and (max-width: 720px){
+        .midDiv{
+          margin: 0px;
+          padding: 0px;
+          width: 80%;
+          height: 70%;
+          padding: 0px 20px;
+          box-shadow:none;
+        }
+      }
+  </style>
+</head>
+<body>
+  <div class="midDiv" >
+
+    <% if(signUp == "yes") { %>
+      <i class="far fa-check-circle"></i>
+    <% } %>
+    <% if( passwordUpdate == "yes") { %>
+      <i class="fas fa-user-lock"></i>
+    <% } %>
+    <h1>Congratulations</h1>
+
+    <% if(signUp == "yes") { %>
+      <h4>You Have Registered Successfully</h4>
+    <% } %>
+    <% if( passwordUpdate == "yes") { %>
+      <h4>Your New Password Is Successfully Updated</h4>
+    <% } %>
+    <a href="/login">SIGN IN</a>  
+  </div>
+</body>
+</html>

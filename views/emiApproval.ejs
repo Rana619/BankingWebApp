@@ -1,0 +1,40 @@
+<%-include("partials/header")-%>
+<div class="register">
+    <h2>EMI Approval</h2>
+    <form spellcheck="false" class="search_form" method="POST" action="/approvalsearch/<%= user %>">
+      <div>
+        <input name="uniqueAccountNo" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required />
+        <button type="submit" name="aprovalBtn" value="emiapproval" ><i class="fas fa-search"></i></button>
+      </div>
+    </form>
+
+<div class="DepositEntry">
+<% if(applications[0]){ %>
+<div>
+    <table>
+        <tr>
+            <th>Account No</th>
+            <th>Loan Payment Mode</th>
+            <th>EMI Amount</th>
+            <th>No. of Installments</th>
+            <th>Date Apply</th>
+            <th>Full Application</th>
+        </tr>
+    <%  applications.forEach(function(application){ %>
+        <tr>
+            <td><a onclick="myAfterClick()" href="/customerDetails/<%= application.loanAccountNumber %>/<%= user %>/direct"><%= application.loanAccountNumber %></a></td>
+            <td><%= application.loanPaymentMode %></td>
+            <td><%= application.loanEmiAmount %></td>
+            <td><%= application.noInstallments %></td>
+            <td><%= application.applyDate %></td>
+            <td><a onclick="myAfterClick()" href="/emiApplication/<%= application.loanAccountNumber %>/<%= application._id %>/<%= user %>/approval">Application</a></td>
+        </tr>
+    <% }) %>
+    </table>
+</div>
+<% } else { %>
+    <p style="width: 100%; color: red; text-align: center; font-size: 25px;" >Sorry!!! No EMI startring request found.</p>
+<% } %>
+</div>
+</div>
+<%-include("partials/footer")-%>

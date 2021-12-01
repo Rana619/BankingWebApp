@@ -1,0 +1,541 @@
+<%-include("partials2.o/header")-%>
+<div class="dEntry">
+  <h3>~: Loan Pay Back :~</h3>
+    <% if(customer.loanAplicationEntery[0] && !customer.loanEMIEntery[0] ){ %>
+      <div class="main-container">
+        <div class="filter-container">
+          <div class="category-head">
+            <ul>
+              <div class="category-title active" id="PayBack_By_EMI">
+                <li>PayBack By EMI</li>
+              </div>
+              <div class="category-title" id="PayBack_TotalAmount_At_Once">
+                <li>PayBack Total Amount At Once</li>
+              </div>
+              <div class="category-title" id="PayBack_Prime_Amount">
+                <li>PayBack Prime Amount</li>
+              </div>
+              <div class="category-title" id="PayBack_Intarest">
+                <li>PayBack Intarest</li>
+              </div>
+            </ul>
+          </div>
+          <div class="posts-collect">
+            <div class="posts-main-container">
+              <!-- single post -->
+              <div class="all PayBack_TotalAmount_At_Once displayNone">
+                <h4>Loan End In One Payment</h4>
+                <div class="cInfo">
+                  <div class="cKey">Total Amount Withdrawal</div>:-
+                  <div class="cValue">
+                    <%= totalWithdrawalAmount %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Intarest</div>:-
+                  <div class="cValue">
+                    <%= intarestNow %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Payment</div>:-
+                  <div class="cValue">
+                    <%= totalAmountwithIntarest %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Intarest Rate</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].loanIntarestRate %>%
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Loan Start Date</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].dateLoanTake %>
+                  </div>
+                </div>
+                <form spellcheck="false" class="registerForm" action="/loan/Onepayment/<%= user %>/apply"
+                  method="POST">
+                  <div class="row">
+                    <p>Total Amount :-</p>
+                    <input name="totalAmountwithIntarest" type="number" autocomplete="off" required />
+                  </div>
+                  <input style="display: none;" type="number" name="haveToPay" value="<%= totalAmountwithIntarest %>" id="">
+                  <input style="display: none;" type="number" name="TotalAmount"
+                    value="<%= customer.currentTotalAmount %>">
+                  <input style="display: none;" type="text" name="loanId"
+                    value="<%= customer.loanAplicationEntery[0]._id %>">
+                  <div class="rowSubmit">
+                    <button onclick="myAfterClick()" type="submit">
+                      Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <!-- end of single post -->
+              <div class="all PayBack_By_EMI">
+                <h4>EMI Start For Loan</h4>
+                <div class="cInfo">
+                  <div class="cKey">Total Amount Withdrawal</div>:-
+                  <div class="cValue">
+                    <%= totalWithdrawalAmount %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Intarest</div>:-
+                  <div class="cValue">
+                    <%= intarestNow %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Payment</div>:-
+                  <div class="cValue">
+                    <%= totalAmountwithIntarest %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Intarest Rate</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].loanIntarestRate %>%
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Loan Start Date</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].dateLoanTake %>
+                  </div>
+                </div>
+                <form spellcheck="false" class="registerForm" action="/loan/EMIentry/<%= user %>/apply"
+                  method="POST">
+                  <table class="emiTable">
+                    <tr>
+                      <th>Plan Code</th>
+                      <th>Duration (Months)</th>
+                      <th>Duration (Years)</th>
+                      <th>EMI Payment</th>
+                      <th>Total Intarest</th>
+                    </tr>
+                    <tr>
+                      <td>MH1</td>
+                      <td>6</td>
+                      <td>0.5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi1t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints1t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YF1</td>
+                      <td>12</td>
+                      <td>1</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi2t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints2t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YM1</td>
+                      <td>18</td>
+                      <td>1.5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi3t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints3t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YF2</td>
+                      <td>24</td>
+                      <td>2</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi4t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints4t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YM2</td>
+                      <td>30</td>
+                      <td>2.5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi5t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints5t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Yf3</td>
+                      <td>36</td>
+                      <td>3</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi6t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints6t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YM3</td>
+                      <td>42</td>
+                      <td>3.5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi7t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints7t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YF4</td>
+                      <td>48</td>
+                      <td>4</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi8t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints8t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YM4</td>
+                      <td>54</td>
+                      <td>4.5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi9t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints9t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <Td>YF5</Td>
+                      <td>60</td>
+                      <td>5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi10t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints10t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YM5</td>
+                      <td>66</td>
+                      <td>5.5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi11t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints11t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YF6</td>
+                      <td>72</td>
+                      <td>6</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi12t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints12t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YM6</td>
+                      <td>78</td>
+                      <td>6.5</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi13t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints13t %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>YF7</td>
+                      <td>84</td>
+                      <td>7</td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= emi14t %>
+                      </td>
+                      <td><i class="fas fa-rupee-sign"></i>
+                        <%= ints14t %>
+                      </td>
+                    </tr>
+                  </table>
+                  <h5 id="planSelect">Select EMI Plan:-</h5>
+                  <div class="loanPlan">
+                    <div class="lPlant">
+                      <select name="emiDuration">
+                        <option value="Real">Select Duration</option>
+                        <option value="6">6 Month - 0.5 Year</option>
+                        <option value="12">12 Month - 1 Year</option>
+                        <option value="18">18 Month - 1.5 Year</option>
+                        <option value="24">24 Month - 2 Year</option>
+                        <option value="30">30 Month - 2.5 Year</option>
+                        <option value="36">36 Month - 3 Year</option>
+                        <option value="42">42 Month - 3.5 Year</option>
+                        <option value="48">48 Month - 4 Year</option>
+                        <option value="54">54 Month - 4.5 Year</option>
+                        <option value="60">60 Month - 5 Year</option>
+                        <option value="66">66 Month - 5.5 Year</option>
+                        <option value="72">72 Month - 6 Year</option>
+                        <option value="78">78 Month - 6.5 Year</option>
+                        <option value="84">84 Month - 7 Year</option>
+                      </select>
+                    </div>
+                    <div class="lPlant2">
+                      <select name="emiAmount">
+                        <option value="Real">Select Amount As Per Duration</option>
+                        <option value="<%= emi1t %>">
+                          <%= emi1t %>
+                        </option>
+                        <option value="<%= emi2t %>">
+                          <%= emi2t %>
+                        </option>
+                        <option value="<%= emi3t %>">
+                          <%= emi3t %>
+                        </option>
+                        <option value="<%= emi4t %>">
+                          <%= emi4t %>
+                        </option>
+                        <option value="<%= emi5t %>">
+                          <%= emi5t %>
+                        </option>
+                        <option value="<%= emi6t %>">
+                          <%= emi6t %>
+                        </option>
+                        <option value="<%= emi7t %>">
+                          <%= emi7t %>
+                        </option>
+                        <option value="<%= emi8t %>">
+                          <%= emi8t %>
+                        </option>
+                        <option value="<%= emi9t %>">
+                          <%= emi9t %>
+                        </option>
+                        <option value="<%= emi10t %>">
+                          <%= emi10t %>
+                        </option>
+                        <option value="<%= emi11t %>">
+                          <%= emi11t %>
+                        </option>
+                        <option value="<%= emi12t %>">
+                          <%= emi12t %>
+                        </option>
+                        <option value="<%= emi13t %>">
+                          <%= emi13t %>
+                        </option>
+                        <option value="<%= emi14t %>">
+                          <%= emi14t %>
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <p>Plan Code :-</p>
+                    <input name="loanPlanCode" type="text" autocomplete="off" required />
+                  </div>
+
+                  <div class="row">
+                    <p>Loan Tenure :-</p>
+                    <input name="loanTenure" type="number" autocomplete="off" required />
+                  </div>
+
+                  <div class="row">
+                    <p>Number of Installments :-</p>
+                    <input name="noInstallments" type="number" autocomplete="off" required />
+                  </div>
+
+                  <div class="row">
+                    <p>Total Payable :-</p>
+                    <input name="totalPayable" type="number" autocomplete="off" required />
+                  </div>
+
+                  <div class="row">
+                    <p>EMI Amount :-</p>
+                    <input name="loanEmiAmount" type="number" autocomplete="off" required />
+                  </div>
+
+                  <div class="row">
+                    <p>Advisor Name :-</p>
+                    <input name="loanAdvisorName" type="text" autocomplete="off" required />
+                  </div>
+
+                  <input style="display: none;" type="number" name="TotalAmount"
+                    value="<%= customer.currentTotalAmount %>">
+
+                  <div class="row">
+                    <p>Narration :-</p>
+                    <input name="loanNarration" type="text" autocomplete="off" required />
+                  </div>
+
+                  <div class="row">
+                    <p>Branch Name :-</p>
+                    <input name="branchName" type="text" autocomplete="off" required />
+                  </div>
+
+                  <div class="rowSubmit">
+                    <button onclick="myAfterClick()" type="submit">
+                      Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <!-- end of single post -->
+
+
+
+
+              <div class="all PayBack_Prime_Amount displayNone">
+                <h4>PayBack From Prime Amount</h4>
+                <div class="cInfo">
+                  <div class="cKey">Total Amount Withdrawal</div>:-
+                  <div class="cValue">
+                    <%= totalWithdrawalAmount %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Intarest</div>:-
+                  <div class="cValue">
+                    <%= intarestNow %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Payment</div>:-
+                  <div class="cValue">
+                    <%= totalAmountwithIntarest %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Intarest Rate</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].loanIntarestRate %>%
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Loan Start Date</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].dateLoanTake %>
+                  </div>
+                </div>
+                <form spellcheck="false" class="registerForm"
+                  action="/loan/paybackPrimeAmountorIntarest/<%= user %>/apply" method="POST">
+                  <div class="row">
+                    <p>Amount :-</p>
+                    <input name="primeAmount" type="number" autocomplete="off" required />
+                  </div>
+                  <input style="display: none;" type="number" name="TotalAmount"
+                    value="<%= customer.currentTotalAmount %>">
+                  <input style="display: none;" type="text" name="loanId"
+                    value="<%= customer.loanAplicationEntery[0]._id %>">
+                  <input style="display: none;" type="text" name="loanAmountWithdrawal"
+                    value="<%= customer.loanAplicationEntery[0].totalAmountWithdrawal %>">
+                  <div class="rowSubmit">
+                    <button onclick="myAfterClick()" type="submit">
+                      Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <!-- end of single post -->
+              <div class="all PayBack_Intarest displayNone">
+                <h4>Pay Intarest On Prime Amount</h4>
+                <div class="cInfo">
+                  <div class="cKey">Total Amount Withdrawal</div>:-
+                  <div class="cValue">
+                    <%= totalWithdrawalAmount %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Intarest</div>:-
+                  <div class="cValue">
+                    <%= intarestNow %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Total Payment</div>:-
+                  <div class="cValue">
+                    <%= totalAmountwithIntarest %>
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Intarest Rate</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].loanIntarestRate %>%
+                  </div>
+                </div>
+                <div class="cInfo">
+                  <div class="cKey">Loan Start Date</div>:-
+                  <div class="cValue">
+                    <%= customer.loanAplicationEntery[0].dateLoanTake %>
+                  </div>
+                </div>
+
+                <form spellcheck="false" class="registerForm"
+                  action="/loan/paybackPrimeAmountorIntarest/<%= user %>/apply" method="POST">
+                  <div class="row">
+                    <p>Amount :-</p>
+                    <input name="primeAmount" type="number" autocomplete="off" required />
+                  </div>
+                  <input style="display: none;" type="number" name="TotalAmount"
+                    value="<%= customer.currentTotalAmount %>">
+                  <input style="display: none;" type="text" name="loanId"
+                    value="<%= customer.loanAplicationEntery[0]._id %>">
+                  <input style="display: none;" type="text" name="loanAmountWithdrawal"
+                    value="<%= customer.loanAplicationEntery[0].totalAmountWithdrawal %>">
+
+                  <div class="rowSubmit">
+                    <button onclick="myAfterClick()" type="submit">
+                      Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <% }else{ %>
+        <p style="color: rgb(224, 102, 102); font-size: 25px; padding:10px ; margin: 10px; ">Sorry!!! you don't take any loan from our bank or already a EMI is running
+        </p>
+      <% } %>
+  </div>
+    <script>
+        const categoryTitle = document.querySelectorAll('.category-title');
+        const allCategoryPosts = document.querySelectorAll('.all');
+        for (let i = 0; i < categoryTitle.length; i++) {
+          categoryTitle[i].addEventListener('click', filterPosts.bind(this, categoryTitle[i]));
+        }
+        function filterPosts(item) {
+          changeActivePosition(item);
+          for (let i = 0; i < allCategoryPosts.length; i++) {
+            if (allCategoryPosts[i].classList.contains(item.attributes.id.value)) {
+              allCategoryPosts[i].style.display = "flex";
+            } else {
+              allCategoryPosts[i].style.display = "none";
+            }
+          }
+        }
+        function changeActivePosition(activeItem) {
+          for (let i = 0; i < categoryTitle.length; i++) {
+            categoryTitle[i].classList.remove('active');
+          }
+          activeItem.classList.add('active');
+        };
+    </script>
+
+
+<%-include("partials2.o/footer")-%>

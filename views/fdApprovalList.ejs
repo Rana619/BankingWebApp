@@ -1,0 +1,48 @@
+<%-include("partials/header")-%>
+  <div class="register">
+    <h2>Fixed Diposit Approval</h2>
+    <form spellcheck="false" class="search_form" method="POST" action="/approvalsearch/<%= user %>">
+      <div>
+        <input name="uniqueAccountNo" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required />
+        <button type="submit" name="aprovalBtn" value="fdapproval" ><i class="fas fa-search"></i></button>
+      </div>
+    </form>
+    <div class="DepositEntry">
+    <% if(applications[0]){ %>
+      <div>
+        <table>
+          <tr>
+            <th>Account No.</th>
+            <th>Duration</th>
+            <th>Fixed Amount</th>
+            <th>Current Balance</th>
+            <th>Enter Interest Rate</th>
+            <th>Approved</th>
+            <th>Cancel</th>
+          </tr>
+          <% applications.forEach(function(application){ %>
+           <tr>
+             <td><a onclick="myAfterClick()" href="/customerDetails/<%= application.accountNo %>/<%= user %>/direct"><%= application.accountNo %></a></td>
+             <td><%= application.duration %></td>
+             <td><%= application.primeAmount %></td>
+             <td><%= application.TotalAmount %></td>
+             <form action="/fixedDiposit/save/<%= user %>" method="POST">
+              <input style="display: none;" type="number" name="duration" value="<%= application.duration %>">
+              <input style="display: none;" type="number" name="fixedAmount" value="<%= application.primeAmount %>" min="1000">
+              <input style="display: none;" name="accountNo" value="<%= application.accountNo %>" type="text">
+              <input style="display: none;" name="activeAmount" value="<%= application.TotalAmount %>" type="text">
+              <input style="display: none;" name="ApplicationId" value="<%= application._id %>" type="text">
+             <td><input class="fdIntarest" name="interest" type="number" autocomplete="off" required></td>
+             <td><button onclick="myAfterClick()" type="submit" name="btn" value="Approved">Approved</button></td>
+             <td><button onclick="myAfterClick()" type="submit" name="btn" value="Cancel">Cancel</button></td>
+             </form>
+           </tr>
+          <% }) %>
+        </table>
+      </div>
+      <% } else { %>
+        <p style="width: 100%; color: red; text-align: center; font-size: 25px;" >Sorry!!! No fixed diposit request found.</p>
+    <% } %>
+    </div>
+  </div>
+<%-include("partials/footer")-%>
