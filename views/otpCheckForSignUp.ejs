@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <title>Bank Lynx</title>
+  <style>
+      body{
+        margin: 0px;
+        padding: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #358FEF ;
+        background-image: url("/img/otpBackground.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+      }
+      #afterClick{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(16, 90, 133, 0.2);
+    z-index: 999999;
+  }
+  .linekk{
+    background-color: rgb(252, 249, 249);
+    width: 7px;
+    height: 40px;
+    margin: 0px 5px;
+    border: none;
+    animation: size 0.8s infinite linear;
+    border-radius: 20px;
+  }
+  
+  .line-1kk{
+    animation-delay: 0.60s;
+  }
+  .line-2kk{
+    animation-delay: 0.30s;
+  }
+  .line-3kk{
+    animation-delay: 0s;
+    }
+  .line-4kk{
+    animation-delay: 0.30s;
+  }
+  .line-5kk{
+    animation-delay: 0.60s;
+  }
+  
+  @keyframes size{
+    0%{
+        height: 40px;
+    }
+    25%{
+        height: 60px;
+    }
+    50%{
+        height: 90px;
+    }
+    75%{
+        height: 60px;
+    }
+    100%{
+        height: 40px;
+    }
+  }
+      form{
+        margin: 0px;
+        padding: 0px;
+        width: 50%;
+        height: 60%;
+        background-color: rgba(255, 255, 255 , 0.8);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      h3{
+        font-size: 25px;
+        text-align: center;
+      }
+      span{
+        font-size: 20px;
+        text-align: center;
+      }
+      input{
+        margin-top: 20px;
+        font-size: 25px;
+        background: none;
+        border-style: none;
+        border-bottom: 2px solid black;
+        outline: none;
+        text-align: center;
+      }
+      button{
+        margin-top: 30px;
+        padding: 10px 15px;
+        background-color: rgb(71, 122, 19);
+        color: white;
+      }
+      .fa-shield-alt{
+          color: rgb(57, 74, 221);
+          font-size: 150px;
+          position: relative;
+          top: -70px;
+      }
+      .accountNotHere{
+          margin-top: 170px;
+          font-size: 20px;
+          color: red;
+          text-align: center;
+      }
+      @media only screen and (max-width: 720px){
+        form{
+          margin: 0px;
+          padding: 0px;
+          width: 80%;
+          height: 70%;
+          padding: 0px 20px;
+          box-shadow:none;
+        }
+        input{
+          margin-top: 10px;
+        }
+        button{
+          margin-top: 20px;
+        }
+        h3{
+          margin-top: 0px;
+          font-size: 20px;
+        } 
+        span{
+          margin-top: 0px;
+          font-size: 15px;
+        }
+        p{
+            font-size: 15px;
+        }
+      }
+  </style>
+</head>
+<body onload="myFunction()" >
+  <div id="afterClick" >
+      <div class="linekk line-1kk"></div>
+      <div class="linekk line-2kk"></div>
+      <div class="linekk line-3kk"></div>
+      <div class="linekk line-4kk"></div>
+     <div class="linekk line-5kk"></div> 
+  </div>
+    <% if(signUp == "yes") { %>
+      <form action="/checkingOTP" method="POST" >
+      <% } %>
+      <% if( passwordUpdate == "yes") { %>
+        <form action="/forgetpassword/checkingOTP" method="POST" >
+      <% } %>
+   <% if( userExist == 'yes' ) { %>
+    <i class="fas fa-shield-alt"></i>
+    <h3>Please enter the 7-digit verification code ( secret key )</h3>
+
+    <% if(signUp == "yes") { %>
+    <span>(we want to make sure it's you before we contact our movers)</span>
+    <% } %>
+    <% if( passwordUpdate == "yes") { %>
+    <span>(we want to make sure it's you before we update your password)</span>
+    <% } %>
+    <p>don't refresh the page during the process</p>
+    <input name="userOtp" type="tel" pattern="[0-9]{7}" title="Incorrect otp" autocomplete="off" required >
+    <input style="display: none;" type="text" name="AccountNo" value="<%= AccountNo %>">
+    <input style="display: none;" type="text" name="passWord" value="<%= passWord %>">
+    <input style="display: none;" type="text" name="serverOTP" value="<%= OTP %>">
+    <button onclick="myAfterClick()" type="submit" >Conform</button>
+   <% } else { %>
+    <p class="accountNotHere" >Sorry!!! any account don't exist related to <%= AccountNo %> Account Number </p>
+   <% } %>
+  </form>
+  <script>
+    let preloder = document.getElementById("afterClick");
+    function myFunction()
+    {
+      preloder.style.display = "none";
+    }
+  </script>
+  <script>
+    let afterClick = document.getElementById("afterClick");
+    function myAfterClick()
+    {
+      afterClick.style.display = "flex";
+    }
+  </script>
+</body>
+</html>

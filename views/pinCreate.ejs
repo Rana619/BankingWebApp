@@ -1,0 +1,56 @@
+<%-include("partials2.o/header")-%>
+<div class="upperofMS" ></div>
+<div class="lowerofMS" ></div>
+<form class="transfer" action="/transferCm/OtpConfrom/<%= user %>" method="POST">
+    <div  class="inputTr">
+        <h3 class="tHeader">BL Money Transfer</h3>
+      <% if( createPin == "yes" ){ %>
+        <p>To use BL Money Transfer, first you have to create the pin( 4 digit between 0 to 9 )</p>
+      <% } %>
+      <% if( updatePin == "yes" ){ %>
+        <p>To use BL Money Transfer, update pin( 4 digit between 0 to 9 )</p>
+      <% } %>
+        <label for="">Enter PIN</label>
+        <input id="GivenData1" pattern="[0-9]{4}" aria-label="4-digit number" title="enter any 4 digit between 0 to 9" name="TrPin1" type="tel" autocomplete="off" >
+        <label for="">Confrom PIN</label>
+        <input id="GivenData2" pattern="[0-9]{4}" aria-label="4-digit number" title="4 to 8 lowercase letters" name="Trpin2" type="tel" autocomplete="off" >
+        <input style="display: none;" name="accountNo" value="<%= derequestedAccountNo %>" type="text">
+        <p id="statement" style="color:red;" ></p>
+    </div>
+    <% if(wrongOtp == "yes"){ %>
+        <p style="color: red; text-align: center; background-color: sandybrown;">Sorry! OTP don't match TryAgain</p>
+    <% } %>
+    <div class="searchBtn">
+        <button onclick="myAfterClick()" id="myButton" type="submit">Save</button>
+    </div>
+</form>
+<script>
+    let ButtonFiled = document.getElementById("myButton");
+    let inputFiled2k = document.getElementById("GivenData2");
+    let inputFiled1k = document.getElementById("GivenData1");
+    inputFiled2k.addEventListener("change", ()=>{
+    let pin1 =  document.getElementById("GivenData1").value;
+    let pin2 =  document.getElementById("GivenData2").value;
+    if( pin1 == pin2 ){
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+        }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="Entered pin don't match"
+        }
+    });
+    inputFiled1k.addEventListener("change", ()=>{
+    let pin1 =  document.getElementById("GivenData1").value;
+    let pin2 =  document.getElementById("GivenData2").value;
+    if( pin1 == pin2 ){
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+        }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="Entered pin don't match"
+        }
+    });
+</script>
+
+
+<%-include("partials2.o/footer")-%>  

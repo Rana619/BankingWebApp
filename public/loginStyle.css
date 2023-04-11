@@ -1,0 +1,573 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex; 
+  justify-content: space-around;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradientBG 15s ease infinite;
+  font-family: "Poppins", sans-serif;
+}
+@keyframes gradientBG { 
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+#afterClick{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(16, 90, 133, 0.2);
+  z-index: 999999;
+}
+.linekk{
+  background-color: rgb(252, 249, 249);
+  width: 7px;
+  height: 40px;
+  margin: 0px 5px;
+  border: none;
+  animation: size 0.8s infinite linear;
+  border-radius: 20px;
+}
+
+.line-1kk{
+  animation-delay: 0.60s;
+}
+.line-2kk{
+  animation-delay: 0.30s;
+}
+.line-3kk{
+  animation-delay: 0s;
+  }
+.line-4kk{
+  animation-delay: 0.30s;
+}
+.line-5kk{
+  animation-delay: 0.60s;
+}
+
+@keyframes size{
+  0%{
+      height: 40px;
+  }
+  25%{
+      height: 60px;
+  }
+  50%{
+      height: 90px;
+  }
+  75%{
+      height: 60px;
+  }
+  100%{
+      height: 40px;
+  }
+}
+.container {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.forms-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.signin-signup {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 75%;
+  width: 50%;
+  transition: 1s 0.7s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+form.sign-up-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+form.sign-in-form {
+  z-index: 2;
+}
+.field {
+  background-color: white;
+  display: flex;
+  position: relative;
+  height: 70px;
+  color: aliceblue;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+}
+.field a {
+  background-color: unset;
+  color: rgb(27, 20, 20);
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 2px;
+  line-height: 40px;
+  font-size: 15px;
+  width: 155px;
+  border: unset;
+  border-radius: unset;
+  cursor: pointer;
+  transform: translateY(9px);
+}
+.field a:focus {
+  outline: none;
+}
+.field .but15 {
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s; 
+}
+.field .but15 span:nth-child(1) {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  top: 0px;
+  left: -100%;
+  background-color: teal;
+  animation: sp1 3s linear alternate-reverse infinite;
+}
+@keyframes sp1 {
+  from {left: -100%;}
+  to {left: 100%;}
+}
+.field .but15 span:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: 0px;
+  right: -100%;
+  background-color: teal;
+  animation: sp2 3s linear alternate-reverse infinite;
+}
+@keyframes sp2 {
+  from {right: -100%;}
+  to {right: 100%;}
+}
+.field .but15 span:nth-child(3) {
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  top: -40px;
+  left: 0px;
+  background: teal;
+  animation: sp3 3s linear alternate-reverse infinite;
+}
+@keyframes sp3 {
+  from {top: -100%;}
+  to {top: 100%;}
+}
+.field .but15 span:nth-child(4) {
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  bottom: -40px;
+  right: 0px;
+  background-color: teal;
+  animation: sp4 3s linear alternate-reverse infinite;
+}
+@keyframes sp4 {
+  from {bottom: -100%;}
+  to {bottom: 100%;}
+}
+.field .but15:hover {
+  letter-spacing: 5px;
+  background-color: rgb(12, 80, 80);
+  color: white;
+  color: black;
+}
+.field:hover .but15{
+  color: white;
+}
+.title {
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+.allinOne{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row input{
+  width: 280px;
+  height: 30px;
+  background: none;
+  border-style: none;
+  border-bottom:2px solid black ;
+  margin: 10px 15px;
+  padding-left: 20px;
+  padding-right: 28px;
+}
+.row input:focus{
+  outline: none;
+}
+.userInput{
+  position: relative;
+  right: 10px;
+}
+.frontIcon{
+  position: relative;
+  left: 30px;
+}
+.passwordIcon{
+  position: relative;
+  right: 40px;
+}
+.passwordIcon1{
+  position: relative;
+  right: 40px;
+}
+
+.input-field {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+
+
+.btn {
+  width: 150px;
+  background-color: #008080;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: white;
+  border:inset 4px #5995fd;
+  color:#6C63FF;
+}
+.panels-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(-45deg, #008080 0%, #28cfcf 100%);
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+.image {
+  width: 100%;
+  transition: transform 1.1s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 6;
+}
+
+.left-panel {
+  pointer-events: all;
+  padding: 3rem 17% 2rem 12%;
+}
+
+.right-panel {
+  pointer-events: none;
+  padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content {
+  color: #fff;
+  transition: transform 0.9s ease-in-out;
+  transition-delay: 0.6s;
+}
+.forgetpass{
+  text-decoration: none;
+  color: #0b6080;
+  position: relative;
+  left: 190px;
+}
+.forgetpass  
+
+
+
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+.panel p {
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+.btn.transparent {
+  margin: 0;
+  background: none;
+  border: 2px solid #fff;
+  width: 130px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.transparent:hover{
+  background-color: white;
+  color: teal;
+}
+.right-panel .image,
+.right-panel .content {
+  transform: translateX(800px);
+}
+/* ANIMATION */
+.container.sign-up-mode:before {
+  transform: translate(100%, -50%);
+  right: 52%;
+}
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content {
+  transform: translateX(-800px);
+}
+
+.container.sign-up-mode .signin-signup {
+  left: 25%;
+}
+
+.container.sign-up-mode form.sign-up-form {
+  opacity: 1;
+  z-index: 2;
+}
+
+.container.sign-up-mode form.sign-in-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content {
+  transform: translateX(0%);
+}
+
+.container.sign-up-mode .left-panel {
+  pointer-events: none;
+}
+
+.container.sign-up-mode .right-panel {
+  pointer-events: all;
+}
+
+@media (max-width: 870px) {
+  .container {
+    min-height: 800px;
+    height: 100vh;
+  }
+  .signin-signup {
+    width: 100%;
+    top: 95%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
+
+  .signin-signup,
+  .container.sign-up-mode .signin-signup {
+    left: 50%;
+  }
+
+  .panels-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
+  .panel {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem 8%;
+    grid-column: 1 / 2;
+  }
+
+  .right-panel {
+    grid-row: 3 / 4;
+  }
+
+  .left-panel {
+    grid-row: 1 / 2;
+  }
+
+  .image {
+    width: 200px;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.6s;
+  }
+
+  .panel .content {
+    padding-right: 15%;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.8s;
+  }
+
+  .panel h3 {
+    font-size: 1.2rem;
+  }
+
+  .panel p {
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+  }
+
+  .btn.transparent {
+    width: 110px;
+    height: 35px;
+    font-size: 0.7rem;
+  }
+
+  .container:before {
+    width: 1500px;
+    height: 1500px;
+    transform: translateX(-50%);
+    left: 30%;
+    bottom: 68%;
+    right: initial;
+    top: initial;
+    transition: 2s ease-in-out;
+  }
+
+  .container.sign-up-mode:before {
+    transform: translate(-50%, 100%);
+    bottom: 32%;
+    right: initial;
+  }
+
+  .container.sign-up-mode .left-panel .image,
+  .container.sign-up-mode .left-panel .content {
+    transform: translateY(-300px);
+  }
+
+  .container.sign-up-mode .right-panel .image,
+  .container.sign-up-mode .right-panel .content {
+    transform: translateY(0px);
+  }
+
+  .right-panel .image,
+  .right-panel .content {
+    transform: translateY(300px);
+  }
+
+  .container.sign-up-mode .signin-signup {
+    top: 5%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 570px) {
+  form {
+    padding: 0 1.5rem;
+  }
+
+  .image {
+    display: none;
+  }
+  .panel .content {
+    padding: 0.5rem 1rem;
+  }
+  .container {
+    padding: 1.5rem;
+  }
+
+  .container:before {
+    bottom: 72%;
+    left: 50%;
+  }
+
+  .container.sign-up-mode:before {
+    bottom: 28%;
+    left: 50%;
+  }
+}

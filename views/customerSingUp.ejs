@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/singupStyle.css">
+    <title>Document</title>
+</head> 
+<body onload="myFunction()" >
+    <div id="afterClick" >
+        <div class="linekk line-1kk"></div>
+        <div class="linekk line-2kk"></div>
+        <div class="linekk line-3kk"></div>
+        <div class="linekk line-4kk"></div>
+       <div class="linekk line-5kk"></div> 
+    </div>
+        <% if( signUp == "yes" ){ %>  
+            <form action="/OtpSend" method="POST"> 
+        <% } %>
+        <% if( updatepass == "yes" ) { %>
+            <form action="/forgetpassword/OtpSend" method="POST"> 
+        <% } %>
+
+        <div class="ComLogo">
+            <img src="/img/mainLogo.png" alt="">
+        </div>
+        <% if( signUp == "yes" ){ %>  
+            <i class="fas fa-user-plus"></i>  
+            <h1>singup</h1>
+        <% } %>
+        <% if( updatepass == "yes" ) { %>
+            <i class="fas fa-sync"></i>
+            <h1>Update Password</h1>
+        <% } %>
+        <% if(otpMatch == 'no'){ %>
+        <p class="accountNotHere" >OTP did not match</p>
+        <% } %>
+         <label for="">Account No.</label>
+         <input name="username"  type= "tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." required>
+         <label for="">Password</label>
+         <input id="GivenData1" name="password1" type="text" placeholder="password" autocomplete="off" required>
+         <label for="">Conform Password</label>
+         <input id="GivenData2" name="password" type="text" placeholder="password" autocomplete="off" required>
+         <p id="statement" style="color:red;" ></p>
+        <% if( signUp == "yes" ){ %>
+         <button type="submit">singup</button>
+         *To Singup and create your Online Account you should already have a account and during this process we will verify you with your Secret Key
+        <% } %>
+        <% if( updatepass == "yes" ) { %>
+            <button id="myButton" type="submit">Next</button>
+        <% } %>
+        </form>
+        <script>
+            let ButtonFiled = document.getElementById("myButton");
+            let inputFiled2k = document.getElementById("GivenData2");
+            let inputFiled1k = document.getElementById("GivenData1");
+            inputFiled1k.addEventListener("change", ()=>{
+            let pin1 =  document.getElementById("GivenData1").value;
+            let pin2 =  document.getElementById("GivenData2").value;
+            if( pin1 == pin2 )
+                {
+                   ButtonFiled.disabled = false;
+                   document.getElementById("statement").innerText="";
+          
+                }else{
+                   ButtonFiled.disabled = true;
+                   document.getElementById("statement").innerText="Entered Amount don't match";
+                }
+            });
+        
+            inputFiled2k.addEventListener("change", ()=>{
+            let pin1 =  document.getElementById("GivenData1").value;
+            let pin2 =  document.getElementById("GivenData2").value;
+            if( pin1 == pin2 )
+                {
+                   ButtonFiled.disabled = false;
+                   document.getElementById("statement").innerText="";
+          
+                }else{
+                   ButtonFiled.disabled = true;
+                   document.getElementById("statement").innerText="Entered Amount don't match";
+                }
+            });
+        
+        </script>
+
+<script>
+    let preloder = document.getElementById("afterClick");
+    function myFunction()
+    {
+      preloder.style.display = "none";
+    }
+  </script>
+  
+  <script>
+    let afterClick = document.getElementById("afterClick");
+    function myAfterClick()
+    {
+      afterClick.style.display = "flex";
+    }
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,1112 @@
+*{
+    margin: 0px;
+    padding: 0px; 
+} 
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#afterClick{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(125, 191, 230, 0.2);
+    z-index: 999999;
+}
+.linekk{
+    background-color: rgb(252, 249, 249);
+    width: 7px;
+    height: 40px;
+    margin: 0px 5px;
+    border: none;
+    animation: size 0.8s infinite linear;
+    border-radius: 20px;
+}
+
+.line-1kk{
+    animation-delay: 0.60s;
+}
+.line-2kk{
+    animation-delay: 0.30s;
+}
+.line-3kk{
+    animation-delay: 0s;
+    }
+.line-4kk{
+    animation-delay: 0.30s;
+}
+.line-5kk{
+    animation-delay: 0.60s;
+}
+
+@keyframes size{
+    0%{
+        height: 40px;
+    }
+    25%{
+        height: 60px;
+    }
+    50%{
+        height: 90px;
+    }
+    75%{
+        height: 60px;
+    }
+    100%{
+        height: 40px;
+    }
+}
+td a{
+    text-decoration: none;
+    color: rgb(81, 206, 81);
+}
+input{
+    color: white;
+}
+.top-bar{
+    height: 60px;
+    width: 100vw;
+    background-color: rgb(27, 189, 189);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.top-bar h3{
+  margin-left: 15px;
+}
+.Mynavk{
+    display: flex;
+}
+.nav-iteamk{
+    min-width: 15vw;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.nav-iteamk label{
+    font-size: 16px;
+    opacity: 0.6;
+    display: inline-block;
+    width: 100%;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left: 15px;
+}
+.nav-iteamk .nav__item{
+    width: 100%;
+    background-color: #3690F0;
+}
+.nav-iteamk .nav__item i{
+    margin-left: 18px;
+}
+.nav-iteamk .nav__item a{
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    width: 100%;
+    padding-top:15px;
+    padding-bottom:15px;
+    background-color: white;
+}
+.nav__item a:hover{
+    background-color:#3690F0 ;
+}
+.fa-times{
+    display: none;
+}
+.bargar{
+    display: none;
+}
+#overview{
+    background-color: #3690F0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+#uperr{
+    border-bottom-right-radius: 25px;
+}
+#lowerr{
+    border-top-right-radius: 25px;
+}
+#bg{
+    background-color: white;
+}
+.main{
+ min-width:85vw ;
+}
+.title-bar{
+    width: 100%;
+    background-color: rgb(107, 175, 221);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.title-bar h2{
+    margin-left: 15px;
+}
+.allMain{
+    padding: 0px;
+    margin: 0px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    animation: gradientBG 15s ease infinite;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    flex-direction: column;
+    background-color: #3690F0 ;
+    background-size: cover;
+    width: 85vw;
+    min-height: 95vh;
+    color: white;
+}
+
+
+  @keyframes gradientBG {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+h3{
+    font-weight: 700;
+}
+h5{
+    margin-right: 10px;
+}
+.mainIcon img{
+   height: 50px;
+   width: auto;
+   margin-left: 10px;
+}
+.register{
+    width: 80vw;
+    padding: 25px;
+    border: 2px solid 3px;
+    background-color: rgba(13, 116, 95, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom-left-radius:50px ;
+    border-top-right-radius:50px ;
+    padding-bottom: 35px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.registerForm{
+    width: 90%;
+    color: white;
+}
+.allName{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+.allName div{
+    width: 30%;
+}
+.allName input{
+    margin-left: 10px;
+    border-style: none;
+    background: none;
+    border-bottom:2px solid black ;
+    width: 100%;
+}
+.allName input:focus{
+   outline: none;
+}
+.row{
+    width: 100%;
+}
+.row textarea{
+    background: none;
+    border-style: none;
+    border:2px solid black;
+    margin-left: 25px;
+}
+.row textarea:focus{
+    outline: none;
+}
+.row{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.row input{
+    background: none;
+    border-style: none;
+    border-bottom:2px solid black;
+    margin-left: 25px;
+}
+.row input:focus{
+    outline: none;
+}
+.rowSubmit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.rowSubmit button{
+    margin-top: 20px;
+    width: 150px;
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 20px;
+    background: none;
+    border: 4px solid white;
+    color: white;
+}
+.rowSubmit button:hover{
+    background-color: white;
+    color: black;
+}
+.dataDocument{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.dataDocument select{
+    width: 70%;
+    margin-left: 10px;
+}
+.dataDocument div{
+    width: 40%;
+}
+.dataDocument div .takData{
+    background: none;
+    border-style:none ;
+    border-bottom:2px solid black ;
+    width: 100%;
+    margin-left: 15px;
+}
+.dataDocument div .takData:focus{
+    outline: none;
+}
+
+.search_form{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom:5px solid rgb(32, 124, 14);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+.search_form div{
+    width: 70%;
+}
+.search_form div input{
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    width: 90%;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left: 15px;
+    outline: none;
+    font-size: 20px;
+    border-style:none ;
+    color: black;
+}
+.search_form button{
+    position: relative;
+    left: -10px;
+    width: 7%;
+    padding-top:5px;
+    padding-bottom:5px;
+    outline: none;
+    font-size: 20px;
+    border-style: none;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: white;
+}
+.DepositEntry{
+    display: flex;
+    width: 90%;
+    border: 2px solid rgb(21, 148, 32);
+    margin-top: 10px;
+}
+.cDetails{ 
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    border-right: 2px solid rgb(50, 160, 28);
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dEntry{
+    width: 60%;
+    border-left: 2px solid rgb(34, 148, 49);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+    color: white;
+    padding-bottom:30px ;
+}
+
+.onlyDetails{
+    width: 100%;
+}
+
+.profilePic{
+    width: 60%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.cInfo{
+    width: 85%;
+    display: flex;
+    margin-bottom: 10px;
+}
+.cKey{
+    width: 40%;
+}
+.cValue{
+    width: 80%;
+    margin-left: 15px;
+}
+.dEntry h4{
+    margin-bottom: 40px;
+}
+.mValue{
+    width:10%;
+}
+.cValue input{
+    background: none;
+    border-style: none;
+    border-bottom:2px solid black;
+}
+#secretKey input{
+    border-style: none;
+    letter-spacing: 3px;
+    font-size: 17px;
+    width: 95px;
+}
+#secretKey i{
+    color: rgb(100, 216, 100);
+}
+.cValue input:focus{
+    outline: none;
+}
+.dAmount{
+    display: flex;
+    height: 30px;
+    width: 90%;
+    margin-top: 40px;
+}
+.dAmount input{
+    width: 60%;
+    margin-left: 10px;
+    background: none;
+    border-style:none;
+    border-bottom: 2px solid black;
+}
+.dAmount input:focus{
+    outline: none;
+}
+.dFrom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 30px;
+}
+.dFrom button{
+    margin-top: 90px;
+    width: 160px;
+    padding: 5px 10px;
+    height: 45px;
+    font-weight: 700;
+    font-size: 20px;
+    background: none;
+    border: 4px solid white;
+    color: white;
+}
+.dFrom button:hover{
+    background-color: white;
+    color: teal;
+}
+.dType{
+    display: flex;
+    margin-bottom: 10px;
+    width: 60%;
+    margin-top: 40px;
+}
+.cValue select{
+    width: 100%;
+    height: 35px;
+}
+.wInfo{
+    margin-top: 80px;
+    width: 90%;
+    display: flex;
+
+}
+.wKey{
+   width: 35%;
+   padding-right: 5px;
+}
+.wValue{
+    width: 60%;
+    padding-left: 10px;
+}
+.wValue input{
+    width: 100%;
+    background: none;
+    border-style: none;
+    border:2px solid black ;
+    padding-left: 5px;
+}
+.wValue input:focus{
+    outline: none;
+}
+.hSign{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.hSign img{
+    width: 60%;
+    height: auto;
+}
+.loan{
+    width: 90vw;
+    height: 85vh;
+    background-color: rgba(229, 233, 230, 0.6);
+    border-bottom-left-radius:60px ;
+    border-top-right-radius:60px ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.loan a{
+  width: 22%;
+  height: 60px;
+  background-color: rgb(24, 102, 21);
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  text-decoration: none;
+  padding-top: 9px;
+  transition: transform;
+  transition-duration: 500ms;
+}
+.fdIntarest{
+    color: black;
+}
+.loan a:hover{
+    background-color: rgb(155, 228, 220);
+    color: black;
+}
+.loanEntry{
+    width: 90%;
+    padding: 4%;
+    background-color: rgba(231, 229, 226, 0.6);
+    border-top-left-radius:60px ;
+    border-bottom-right-radius:60px ;
+}
+.genderTak{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.genderTak label{
+    font-size: 17px;
+}
+.genderTak div{
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.genderTak div input{
+    margin-left: 15px;
+    width:20px;
+    height: 20px;
+    vertical-align: middle;
+}
+embed{
+    width: 90%;
+    height: 100%;
+}
+.TranstionsDetails{
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.TranstionsDetails form{
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.TranstionsDetails form button{
+    background: none;
+    border-style: none;
+    margin-left: 15px;
+    font-size: 20px;
+}
+.TranstionsDetails form select{
+    font-size: 15px;
+    padding: 3px 3px;
+}
+.TranstionsDetails form label{
+    font-size: 14px;
+    opacity: 0.7g;
+}
+.transationTable{
+    width: 100%;
+}
+th{
+    text-align: left;
+    color: black;
+}
+td{
+    text-align: left;
+    padding: 10px 20px;
+    color: black;
+}
+tr{
+    margin-bottom: 30px;
+}
+.transationTable tr th{ 
+    padding: 10px 20px;
+}
+.bodertak tr {
+    border: 1px solid black;
+}
+.fa-rupee-sign{
+    margin-right: 5px;
+}
+.ImagTak{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+.emiTable{
+    width: 100%;
+    color: white;
+}
+.emiTable tr{
+    border: 1px solid white;
+}
+.emiTable tr th{
+    text-align: center;
+    color: white;
+     padding: 5px 10px;
+}
+.emiTable tr td{
+    text-align: center;
+    color: white;
+
+}
+.loanPlan{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.loanPlan select{
+    padding: 5px 10px;
+}
+.loanPlan select option{
+    padding: 5px 10px;
+}
+#planSelect{
+    margin-top: 15px;
+}
+
+.main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filter-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.category-head{
+width: 100%;
+}
+.category-head ul{   
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.category-title{
+    flex: 0 0 calc(16.6667% - 10px);
+    display: flex;
+    justify-content:center;
+    background: #a8a8a8;
+    padding: 12px;
+    color: #fff;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.category-title:hover{
+    opacity: 0.7;
+}
+.category-title li{
+    padding: 0 10px;
+}
+.category-title span{
+    color: #222;
+}
+.posts-collect{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.posts-main-container{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+}
+.all{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.displayNone{
+  display: none;
+}
+.DepositEntry div{
+    width: 100%;
+}
+.DepositEntry div table{
+    width: 100%;
+}
+.DepositEntry div table tr th{
+    text-align: center;
+}
+.DepositEntry div table tr td{
+    text-align: center;
+}
+.allDetails{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.allDetails h5{
+    width: 100%;
+    padding-left: 30px;
+    opacity: 0.6;
+}
+.sBox{
+ margin-bottom: 20px;
+}
+.allDetails div .cInfo .cKey{
+    padding-left: 100px;
+}
+.allDetails div .cInfo .cValue{
+    padding-left: 100px;
+}
+.allCustomers{
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    width: 90%;
+    border: none;
+    background-color: white;
+}
+.allCustomers img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.allCustomers tr{
+    background-color: rgb(153, 221, 238);
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.allCustomers tr th{
+    text-align: center;
+}
+.allCustomers tr td{
+   text-align: center;
+}
+.allCustomers tr td a{
+    text-decoration: none;
+    color: rgb(68, 190, 68);
+}
+#footer{
+    background-color: teal;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #footer p{
+    text-align: center;
+    color: white;
+  }
+
+@media(max-width: 1170px){
+  .posts-main-container{
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width: 768px){
+  .posts-main-container{
+      grid-template-columns: 1fr;
+  }
+}
+.active{
+  background: #f0544f;
+}
+@media screen and (max-width: 1024px) {
+
+    .navbar-nav{
+        position: relative;
+        left: 40%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .nav-iteamk{
+        position: relative;
+        display: none;
+        width: 100vw;
+        z-index: 3;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .Mynavk{
+        width: 100%;
+    }
+    .overview{
+        background-color: rgb(255, 255, 255);
+    }
+    .main{
+        width:100%;
+        margin: 0px;
+    }
+    .bargar{
+        font-size: 35px;
+        margin-left: 15px; 
+        display: block;
+        cursor: pointer;
+    }
+    #overview{
+        background-color: #3690F0;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+    #uperr{
+        border-bottom-right-radius: 0px;
+    }
+    #lowerr{
+        border-top-right-radius: 0px;
+    }
+    #bg{
+        background-color: white;
+    }
+    .nav-iteamk .nav__item a{
+        margin-right: 18px;
+    }
+    .fa-times{
+        display: none;
+    }
+    .dataDocument{
+        flex-direction: column;
+        font-size: 12px;
+        margin-left: 20px;
+    }
+    .dataDocument div label{
+        font-size: 12px;
+    }
+    .register{
+        width: 100vw;
+    }
+    .main{
+        min-width:100vw ;
+    }
+    .allName div label{
+        font-size: 12px;
+    }
+    .allName div input{
+       width: 80%;
+    }
+    .row textarea{
+        background: none;
+        border-style: none;
+        border:2px solid black;
+        margin-left: 25px;
+        width: 90%;
+    }
+    .row label{
+        font-size: 12px;
+    }
+    .genderTak label{
+        font-size: 12px;
+    }
+    .genderTak{
+        font-size: 12px;
+        margin-left: 20px;
+    }
+    .search_form{
+        width: 100%;
+    }
+    .search_form div{
+        width: 90%;
+    }
+    .search_form div input{
+        width: 80%;
+        color: black;
+    }
+    .search_form button{
+        width: 15%;
+    }
+    .DepositEntry{
+        width: 100vw;
+        flex-direction: column;
+    }
+    .DepositEntry .cDetails{
+        max-width: 100vw;
+        overflow-x: hidden ;
+        border: none;
+        padding-left: 20px;
+    }
+    .DepositEntry .dEntry{
+        width: 100vw;
+        border: none;
+    }
+    .all .cInfo{
+        padding-left: 50px;
+    }
+    .all .row{
+        padding-left: 25px;
+    }
+    .dType .cKey{
+        font-size: 12px;
+    }
+    .dType .cValue{
+        font-size: 12px;
+    }
+    .cInfo .cKey{
+        font-size: 12px;
+        width: 30%;
+    }
+    .cValue h4{
+        font-size: 15px;
+    }
+    .cInfo .cValue{
+        width: 50%;
+        font-size: 12px;
+    }
+    .cValue select{
+        width: 60%;
+    }
+    .wInfo{
+        flex-direction: column;
+    }
+    .dFrom button{
+        width: 60%;
+    } 
+    .row input{
+        width: 80%;
+    }
+    .row p{
+        font-size: 13px;
+    }
+    .hSign{
+        flex-direction: column;
+    }
+    .DepositEntry div table{
+        width: 100vw;
+        background-color: burlywood;
+    }
+    .DepositEntry div table tr{
+      padding: 0px;
+      margin: 0px;
+      font-size: 11px;
+    }
+    .DepositEntry div table tr td{
+        padding: 0px;
+        margin: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .DepositEntry div table tr td input{
+        width: 9vw;
+    }
+    .DepositEntry div table tr td button{
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+
+    .DepositEntry div table tr th{
+        padding: 0px;
+        margin: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .registerForm{
+        width: 100vw;
+    }
+    .registerForm .row{
+        padding-left: 25px;
+    }
+    .loanPlan{
+        flex-direction: column;
+    }
+    .lPlant{
+        padding-left: 10px;
+    }
+    .lPlant2{
+        padding-left: 10px;
+    }
+    .lPlant select{
+        font-size: 11px;
+    }
+    .lPlant2 select{
+        font-size: 11px;
+    }
+    .dEntry table{
+        width: 1000px;
+    }
+    .dEntry .cInfo{
+        padding-left: 30px;
+    }
+    .allCustomers tr td{
+        margin: 0px;
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+    .allCustomers tr td img{
+        width: 40px;
+        height: auto;
+    }
+    .allCustomers tr th{
+        margin: 0px;
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+    .allDetails div .cInfo{
+        padding-left: 60px;
+    }
+    .allDetails div .cInfo .cKey{
+        padding: 0px;
+    }
+    .allDetails div .cInfo .cValue{
+        padding: 0px;
+    }
+    .TranstionsDetails{
+        width: 100vw;
+    }
+    .TranstionsDetails form select{
+        font-size: 14px;
+        padding: 2px 4px;
+        margin: 0px;
+    }
+    .TranstionsDetails form label{
+        font-size: 15px;
+    }
+    .transationTable{
+        padding: 0px;
+        margin: 0px;
+    }
+    .transationTable tr{
+        padding: 0px;
+        margin: 0px;
+        font-size: 9px;
+    }
+    .transationTable tr td{
+        padding: 0px;
+        margin: 0px;
+    }
+    .transationTable tr th{
+        padding: 0px;
+        margin: 0px;
+    }
+    #allLoanDetails{
+        width: 100vw;
+        padding: 0px;
+        margin: 0px;
+        margin-bottom:30px ;
+        overflow-x: scroll;
+    }
+    #allLoanDetails tr{
+        padding: 0px;
+        margin: 0px;
+        font-size: 8px;
+    }
+    #allLoanDetails tr td{
+        padding: 0px;
+        margin: 0px;
+    }
+    #allLoanDetails tr td img{
+        width: 20px;
+        height: 20px;
+    }
+    #allLoanDetails tr th{
+        padding: 0px;
+        margin: 0px;
+    }
+    table tr td a{
+      text-decoration: none;
+      color: green;
+    }
+}
+
+
+
+
+
+
+
+
+
+.active-navbar{
+    display: flex;
+}
+.main-diactivate{
+    display: none;
+}
+
+

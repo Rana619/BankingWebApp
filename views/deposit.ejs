@@ -1,0 +1,443 @@
+<%-include("partials/header")-%>
+
+<div class="register">
+        <h2>Deposit Entry</h2>
+        <form spellcheck="false" class="search_form" method="POST" action="/search/<%= user %>">
+            <div>
+            <input name="uniqueAccountNo" class="code" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required/>
+            <button name="SearchBtn" value="deposit" class="submit" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
+<% if(depositBtn == "depositBtn" ){ %>
+  <% if( customer ){ %>
+<div class="DepositEntry">
+  <div class="cDetails">
+    <img class="profilePic" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+    <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+    <div class="cInfo">
+
+    <% if(customer.gender === "Male"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Mr. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Female" && customer.marriageStatus === "Married"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Mrs. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Female" && customer.marriageStatus === "single"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Miss. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Other" ){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4><%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+    
+    
+      </div>
+    <div class="cInfo">
+      <div class="cKey">Account No.</div>:-
+      <div class="cValue"><p><%= customer.AccountNo %></p></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Father's Name</div>:-
+      <div class="cValue">Mr. <%= customer.ffName %> <%= customer.fmName %> <%= customer.flName %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Date Of Birth</div>:-
+      <div class="cValue"><%= customer.dob %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Pan Card No.</div>:-
+      <div class="cValue"><%= customer.panNo %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Phone No.</div>:-
+      <div class="cValue"><%= customer.phone %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Email ID</div>:-
+      <div class="cValue"><label><%= customer.email %></label></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Voter Card ID</div>:-
+      <div class="cValue"><%= customer.voter %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Adhar Card No.</div>:-
+      <div class="cValue"><%= customer.adhar %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Address</div>:-
+      <div class="cValue"><%= customer.address %></div>
+    </div>
+  </div>
+  <div class="dEntry">
+   <h4>Current Amount :- <%= customer.currentTotalAmount %>/-</h4>
+   <form class="dFrom" action = "/deposit/<%= user %>/<%= customer.AccountNo %>/save" method="POST">
+    
+    <input style="display:none;" type="number" name="currentAmount" value="<%= customer.currentTotalAmount %>">
+
+   <div class="dType">
+    <div class="cKey"><h4>Deposit Type</h4></div>:-
+    <div class="cValue">
+      <select name="depositType">
+        <option value="Cash">Cash</option>
+        <option value="Cheque">Cheque</option>
+     </select>  
+    </div>
+   </div>
+
+   <div class="dType">
+    <div class="cKey"><h4>Branch Name</h4></div>:-
+    <div class="cValue">
+      <Input name="branchName" type="text" required></Input>
+    </div>
+   </div>
+
+    <div class="cInfo">
+      <div class="mValue">2000 X </div>:-
+      <div class="cValue"><input id="tak2000" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">500 X </div>:-
+      <div class="cValue"><input id="tak500" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">200 X </div>:-
+      <div class="cValue"><input id="tak200" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">100 X </div>:-
+      <div class="cValue"><input id="tak100" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">50 X </div>:-
+      <div class="cValue"><input id="tak50" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">20 X </div>:-
+      <div class="cValue"><input id="tak20" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">10 X </div>:-
+      <div class="cValue"><input id="tak10" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">5 X </div>:-
+      <div class="cValue"><input id="tak5" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">2 X </div>:-
+      <div class="cValue"><input id="tak2" type="number" autocomplete="off" ></div>
+    </div>
+    <div class="cInfo">
+      <div class="mValue">1 X </div>:-
+      <div class="cValue"><input id="tak1" type="number" autocomplete="off" ></div>
+    </div>
+  
+    <div class="dAmount">
+      <h4>Deposit Amount :- </h4>
+      <input id="TotalEnterAmount" Name="depositAmount"  type="number" autocomplete="off" required >
+    </div>
+     <p id="statement" style="color:red; background-color: white;" ></p>
+     <button onclick="myAfterClick()" id="myBtn" type="submit">Deposit</button>
+
+  </form>
+
+  </div>
+
+  <script>
+
+    let inputFiled = document.getElementById("TotalEnterAmount")
+    let ButtonFiled = document.getElementById("myBtn");
+
+        let get2000p =  document.getElementById("tak2000");
+        let get500p =  document.getElementById("tak500");
+        let get200p =  document.getElementById("tak200");
+        let get100p =  document.getElementById("tak100");
+        let get50p =  document.getElementById("tak50"); 
+        let get20p =  document.getElementById("tak20");
+        let get10p =  document.getElementById("tak10");
+        let get5p =  document.getElementById("tak5");
+        let get2p =  document.getElementById("tak2");
+        let get1p =  document.getElementById("tak1");
+  
+    inputFiled.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get2000p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get500p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get200p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get100p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get50p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get20p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get10p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get5p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get2p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+      get1p.addEventListener("change", ()=>{
+        let get2000p =  document.getElementById("tak2000").value;
+        let get500p =  document.getElementById("tak500").value;
+        let get200p =  document.getElementById("tak200").value;
+        let get100p =  document.getElementById("tak100").value;
+        let get50p =  document.getElementById("tak50").value; 
+        let get20p =  document.getElementById("tak20").value;
+        let get10p =  document.getElementById("tak10").value;
+        let get5p =  document.getElementById("tak5").value;
+        let get2p =  document.getElementById("tak2").value;
+        let get1p =  document.getElementById("tak1").value;
+        let totalAmount =  document.getElementById("TotalEnterAmount").value;
+        let totalAmountCheck = 2000*get2000p + 500*get500p + 200*get200p + 100*get100p + 50*get50p + 20*get20p + 10*get10p + 5*get5p + 2*get2p + 1*get1p;
+        if( totalAmount == totalAmountCheck)
+          {
+            console.log(totalAmount);
+            console.log(totalAmountCheck);
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+          }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="check the numbers of notes or the entered or total amount"
+          }
+      });
+       
+  </script>
+  </div>
+<% } else { %>
+ <p style="color: red; text-align: center; font-size: 20px;" >Sorry!!! the account number don't exist</p> 
+<% } %>  
+<% } %>
+</div>
+
+
+<%-include("partials/footer")-%>

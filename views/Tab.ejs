@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- bootstrap -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/tabStyle.css">
+    <title>Bank Lynx</title>
+</head>
+<body onload="myFunction()" >
+  <div id="afterClick" >
+    <div class="linekk line-1kk"></div>
+    <div class="linekk line-2kk"></div>
+    <div class="linekk line-3kk"></div>
+    <div class="linekk line-4kk"></div>
+   <div class="linekk line-5kk"></div> 
+  </div>
+<div class="homeNav">
+  <div class="mainIcon" >
+    <img src="/img/mainLogo.png" alt="">
+  </div>
+  <div class="homeNavOption" >
+      <div class="dropdown">
+        <button class="dropbtn">Data Entry <i class="fas fa-angle-down"></i>
+        <div class="dropdown-content">
+          <a id="takarrow" ><i class="fas fa-caret-up"></i></a>
+          <p id="iconBottom"></p>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/deposit">Deposit Entry</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/withdrawal">Withdrawal Entry</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/loan/NewLoanEntry">Loan Entry</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/loan/EMIentry">EMI Start</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/fd">Fixed Deposit</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Approvals <i class="fas fa-angle-down"></i>
+        <div class="dropdown-content">
+          <a id="takarrow" ><i class="fas fa-caret-up"></i></a>
+          <p id="iconBottom"></p>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/fdApproval">FixedDeposit Approval</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/LoanApproval">Loan Approval</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/EMIApproval">EMI Approval</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Details<i class="fas fa-angle-down"></i>
+        <div class="dropdown-content">
+          <a id="takarrow" ><i class="fas fa-caret-up"></i></a>
+          <p id="iconBottom"></p>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/cmDetails">Customer Details</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/transactiondetails">Transaction Details</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/Loandetails">loan Details</a>
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/emidetails">EMI Details</a>
+        </div>
+      </div> 
+
+      <div class="dropdown">
+        <button class="dropbtn">
+          <a onclick="myAfterClick()" href="/tab/banker/<%= user %>/member" >
+            Customer Registration
+          </a>
+        </button>
+      </div>
+
+      <div class="dropdown">
+        <button id="updateclass" class="dropbtn">
+          <a onclick="myAfterClick()" href="/tab/autoupdate/<%= user %>" >
+            <i class="fas fa-undo"></i>
+            Update
+          </a>
+        </button>
+      </div>
+
+      <div class="dropdown">
+        <button id="logoutclass" class="dropbtn">
+          <a onclick="myAfterClick()" href="/logout" >
+            Log Out
+          </a>
+        </button>
+      </div>
+
+  </div>
+</div>
+<div class="testimonialMain" >
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/img/images (4).jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>RC Flexipay Home Loan</h2>
+          <h4>Flex Your Imagination Not Your Income</h4>
+          <p>The feeling of attachment togetherness we understand what a home means<br/><span style="color: green; text-decoration: underline;">Home Loans start from 8.35%* p.a.</span></p>
+
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/img/images (6).jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Benefits Of Saving Account</h2>
+          <h6><i class="fas fa-credit-card"></i>ATM cum debit card and passbook facility is provided totally free of cost</h6>
+          <h6><i class="fas fa-globe"></i>facility and online funds transfer facility is available</h6>
+          <h6><i class="fas fa-chart-line">No deposit limit</i></h6>     
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/img/images (5).jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Senior Citizens Savings Scheme</h2>
+          <h6><i class="fas fa-check-square"></i>Current interest rate - 8.70%</h6>
+          <h6><i class="fas fa-check-square"></i>Invest upto Rs. 15 Lakhs</h6>
+          <h6><i class="fas fa-check-square"></i>Tax benefits upto Rs. 1.5 Lakh</h6>
+          <h6><i class="fas fa-check-square"></i>Flexible tenure of 5 years</h6>
+          <h5>#ENJOY your SECOND innings</h5>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="bankOffer" >
+  <h5>Achieve your financial goals with help from your neighborhood banking partner</h5>
+  <p>Achieve your financial goals with help from your neighborhood banking partner -- BR Bank. We're a
+    leading community bank in India and have more than 74 branch locations throughout Uttar Pradhas and Karnataka.
+    Through a suite of first-class personal and business banking solutions , we provide the products, services and
+    financial expertise our customers need to accomplish their dreams
+  </p>
+  <p>To learn more about what BR Bank has to offer, view our great banking option now or contact our team of financial prefessionals today</p>
+  <div class="Offers" >
+    <div><i class="fas fa-piggy-bank"></i><h4>DEPOSIT RATE SPECIALS</h4></div>
+    <div class="sideBar" ><i class="fas fa-store"></i><H4>BR BANK FOR SMALL BUSINESS</H4></div>
+    <div class="sideBar" ><i class="fas fa-percent"></i><H4>BUILD YOUR SAVING WITH BR BANK</H4></div>
+  </div>
+</div>
+
+<section id = "contectAndAbout">
+<div>
+  <h5>Bank</h5>
+  <p>Personal</p>
+  <p>Business</p>
+</div>
+<div>
+  <h5>Invest</h5>
+  <p>Wealth</p>
+  <p>ManageMent</p>
+  <p>Brokerage</p>
+</div>
+<div>
+  <h5>Company</h5>
+  <p>About Us</p>
+  <p>Investor</p>
+  <p>Relations</p>
+  <p>Careers</p>
+</div>
+<div>
+  <h5>Support</h5>
+  <p>Contact Us</p>
+  <p>Find a Branch</p>
+  <p>Routing Number<br/>+91 7056004445</p>
+</div>
+<div>
+  <h5>Connect With Us</h5>
+  <div id="iconsk">
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-facebook-f"></i>
+   <i class="fab fa-linkedin-in"></i>
+  </div>
+</div>
+</section>
+<section id="footer" >
+<p>Privacy Policy <span>|</span> Privacy & Security <span>|</span>  Bank Lynxshares,inc. <span>|</span> Member FDIC. Equal Housing Lender </p>
+<p>© 2021  Bank Lynx. All rights reserved</p>
+</section>
+
+
+<script>
+  let preloder = document.getElementById("afterClick");
+  function myFunction()
+  {
+    preloder.style.display = "none";
+  }
+</script>
+
+<script>
+  let afterClick = document.getElementById("afterClick");
+  function myAfterClick()
+  {
+    afterClick.style.display = "flex";
+  }
+</script>
+
+</body>
+</html>

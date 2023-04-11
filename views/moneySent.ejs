@@ -1,0 +1,130 @@
+<%-include("partials2.o/header")-%>
+<h3 class="MTheader" >BL Money Transfer</h3>
+<div class="sendSt">
+    <div class="geterSt">
+        <h3>Information</h3>
+        <img class="profilePicMT" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+        <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+        <div class="cInfo">
+            <% if(customer.gender==="Male" ){ %>
+                <div class="cKey"><h4>Name</h4></div>:-
+                <div class="cValue">
+                    <h4>Mr. <%= customer.userfName %>
+                            <%= customer.usermName %>
+                                <%= customer.userlName %>
+                                    <h4>
+                </div>
+                <% } %>
+
+                    <% if(customer.gender==="Female" && customer.marriageStatus==="Married" ){ %>
+                        <div class="cKey">Name</div>:-
+                        <div class="cValue">
+                            <h4>Mrs. <%= customer.userfName %>
+                                    <%= customer.usermName %>
+                                        <%= customer.userlName %>
+                                            <h4>
+                        </div>
+                        <% } %>
+
+                            <% if(customer.gender==="Female" && customer.marriageStatus==="single" ){ %>
+                                <div class="cKey">Name</div>:-
+                                <div class="cValue">
+                                    <h4>Miss. <%= customer.userfName %>
+                                            <%= customer.usermName %>
+                                                <%= customer.userlName %>
+                                                    <h4>
+                                </div>
+                                <% } %>
+
+                                    <% if(customer.gender==="Other" ){ %>
+                                        <div class="cKey">Name</div>:-
+                                        <div class="cValue">
+                                            <h4>
+                                                <%= customer.userfName %>
+                                                    <%= customer.usermName %>
+                                                        <%= customer.userlName %>
+                                                            <h4>
+                                        </div>
+                                        <% } %>
+        </div>
+        <div class="cInfo">
+            <div class="cKey">Account No.</div>:-
+            <div class="cValue">
+                    <%= customer.AccountNo %>
+            </div>
+        </div>
+    </div>
+
+    <div class="senderSt">
+        <h3>Your Balance</h3>
+        <h5>Current Amount :- <%= customerk.currentTotalAmount %>/-</h5>
+        <% if( customerk.loanAplicationEntery[0] && !customer.loanEMIEntery[0] ){ %>
+        <h5>Current Loan Amount :- <%= customerk.loanAplicationEntery[0].totalAmountFromLoan %>/-</h5>
+        <% } %>
+        <form action="/transfer/finalsend" method="POST">
+
+            <% if( customerk.loanAplicationEntery[0] && !customer.loanEMIEntery[0] ){ %>
+                <div class="moneyType">
+                    <div><h4>withdrawal From</h4></div>
+                    <div>
+                      <select name="withdeawalFrom">
+                        <option value="Real">Real Amount</option>
+                        <option value="Loan">Loan Amount</option>
+                     </select>  
+                    </div>
+                   </div>
+                   <input style="display: none;" type="number" name="LoanAmount" value="<%= customerk.loanAplicationEntery[0].totalAmountFromLoan %>" /> 
+                   <input style="display: none;" type="text" name="LoanAmountID" value="<%= customerk.loanAplicationEntery[0]._id %>" /> 
+                   <input style="display: none;" type="number" name="totalLoanAmountWithdrawal" value="<%= customerk.loanAplicationEntery[0].totalAmountWithdrawal %>" />        
+            <% } %>    
+
+           
+            <label for="">Enter The Amount</label>
+            <input id="GivenData1" name="geteram" type="number" autocomplete="off" required >
+            <label for="">Confrom The Amount</label>
+            <input id="GivenData2" name="geteram" type="number" autocomplete="off" required > 
+            <p id="statement" style="color:red;" ></p>
+            <label for="">Pin</label>
+            <input name="pin" type="text" autocomplete="off" required> 
+            <a class="forgetPass" href="/moneytransfer/forgetPassword/<%= user %>">forget Pin ?</a>
+            <input style="display: none;" name="senderAcc" value="<%= user %>" type="text">
+            <input style="display: none;" name="geterAcc" value="<%= customer.AccountNo %>" type="text">
+            <button onclick="myAfterClick()" id="myButton" type="submit">send</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    let ButtonFiled = document.getElementById("myButton");
+    let inputFiled2k = document.getElementById("GivenData2");
+    let inputFiled1k = document.getElementById("GivenData1");
+    inputFiled2k.addEventListener("change", ()=>{
+    let pin1 =  document.getElementById("GivenData1").value;
+    let pin2 =  document.getElementById("GivenData2").value;
+    if( pin1 == pin2 )
+        {
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+  
+        }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="Entered Amount don't match";
+        }
+    });
+    inputFiled1k.addEventListener("change", ()=>{
+    let pin1 =  document.getElementById("GivenData1").value;
+    let pin2 =  document.getElementById("GivenData2").value;
+    if( pin1 == pin2 )
+        {
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+  
+        }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="Entered Amount don't match";
+        }
+    });
+</script>
+
+<%-include("partials2.o/footer")-%>

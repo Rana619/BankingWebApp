@@ -1,0 +1,306 @@
+  <%-include("partials/header")-%>
+
+  <div class="register">
+    <h2>EMI Details</h2>
+    <form spellcheck="false" class="search_form" method="POST" action="/search/<%= user %>">
+      <div>
+        <input name="uniqueAccountNo" class="code" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required />
+        <button class="submit" name="SearchBtn" value="emiDetail" type="submit"><i class="fas fa-search"></i></button>
+      </div>
+    </form>
+
+    <% if( emiDetailsbtn==="emiDetailsbtn" ){ %>
+      <% if(customer) { %>
+      <% if( customer.loanEMIEntery[0] ){ %>
+
+        <div class="DepositEntry">
+          <div class="cDetails">
+            <img class="profilePic" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+          <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+            <div class="cInfo">
+
+              <% if(customer.gender==="Male" ){ %>
+                <div class="cKey">Name</div>:-
+                <div class="cValue">
+                  <h4>Mr. <%= customer.userfName %>
+                      <%= customer.usermName %>
+                        <%= customer.userlName %>
+                          <h4>
+                </div>
+                <% } %>
+
+                  <% if(customer.gender==="Female" && customer.marriageStatus==="Married" ){ %>
+                    <div class="cKey">Name</div>:-
+                    <div class="cValue">
+                      <h4>Mrs. <%= customer.userfName %>
+                          <%= customer.usermName %>
+                            <%= customer.userlName %>
+                              <h4>
+                    </div>
+                    <% } %>
+
+                      <% if(customer.gender==="Female" && customer.marriageStatus==="single" ){ %>
+                        <div class="cKey">Name</div>:-
+                        <div class="cValue">
+                          <h4>Miss. <%= customer.userfName %>
+                              <%= customer.usermName %>
+                                <%= customer.userlName %>
+                                  <h4>
+                        </div>
+                        <% } %>
+
+                          <% if(customer.gender==="Other" ){ %>
+                            <div class="cKey">Name</div>:-
+                            <div class="cValue">
+                              <h4>
+                                <%= customer.userfName %>
+                                  <%= customer.usermName %>
+                                    <%= customer.userlName %>
+                                      <h4>
+                            </div>
+                            <% } %>
+
+
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Account No.</div>:-
+              <div class="cValue">
+                <p>
+                  <%= customer.AccountNo %>
+                </p>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Father's Name</div>:-
+              <div class="cValue">Mr. <%= customer.ffName %>
+                  <%= customer.fmName %>
+                    <%= customer.flName %>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Date Of Birth</div>:-
+              <div class="cValue">
+                <%= customer.dob %>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Pan Card No.</div>:-
+              <div class="cValue">
+                <%= customer.panNo %>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Phone No.</div>:-
+              <div class="cValue">
+                <%= customer.phone %>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Email ID</div>:-
+              <div class="cValue">
+                <%= customer.email %>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Voter Card ID</div>:-
+              <div class="cValue">
+                <%= customer.voter %>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Adhar Card No.</div>:-
+              <div class="cValue">
+                <%= customer.adhar %>
+              </div>
+            </div>
+            <div class="cInfo">
+              <div class="cKey">Address</div>:-
+              <div class="cValue">
+                <%= customer.address %>
+              </div>
+            </div>
+          </div>
+          <div class="dEntry">
+            <h3>Current Amount :- <%= customer.currentTotalAmount %>/-</h3>
+            <table>
+              <tr>
+                <th>Application Loan Amount</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].loanAmount %>
+                </td>
+              </tr>
+              <tr>
+                <th>Sanction Loan Amount</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].sanctionAmountLoan %>
+                </td>
+              </tr>
+      
+              <tr>
+                <th>Loan Amount Withdrawal</th>
+                <td>
+                  <%= totalAmountTaken %>
+                </td>
+              </tr>  
+              <tr>
+                <th>Date of Loan Approved</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].dateLoanTake %>
+                </td>
+              </tr>
+              <tr>
+                <th>Monthly Income</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].monthlyIncome %>
+                </td>
+              </tr>
+              <tr>
+                <th>Credit Score</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].creditScore %>
+                </td>
+              </tr>
+              <tr>
+                <th>Loan Type</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].loanType %>
+                </td>
+              </tr>
+              <tr>
+                <th>Loan Intarest Rate</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].loanIntarestRate %>
+                </td>
+              </tr>
+              <tr>
+                <th>EMI Start Last Date</th>
+                <td>
+                  <%= customer.loanAplicationEntery[0].EmiStatrtLastDate %>
+                </td>
+              </tr>
+              <tr>
+                <th>EMI Plan Code</th>
+                <td>
+                  <%= customer.loanEMIEntery[0].loanPlanCode %>
+                </td>
+              </tr>
+              <tr>
+                <th>EMI Amount</th>
+                <td>
+                  <%= customer.loanEMIEntery[0].loanEmiAmount %>
+                </td>
+              </tr>
+              <tr>
+                <th>No. of Installments Left</th>
+                <td>
+                  <%= customer.loanEMIEntery[0].noInstallments %>
+                </td>
+              </tr>
+              <tr>
+                <th>EMI Start Date</th>
+                <td>
+                  <%= customer.loanEMIEntery[0].emiStartDate %>
+                </td>
+              </tr>
+                <th>Next Installment Date</th>
+                <td>
+                  <%= customer.loanEMIEntery[0].dateIntarestCalculate %>
+                </td>
+              </tr>
+              <tr>
+                <th>Total Payable Amount</th>
+                <td>
+                  <%= customer.loanEMIEntery[0].totalPayable %>
+                </td>
+              </tr>
+              <tr>
+                <th>Banker ID</th>
+                <td>
+
+                  <% if( customer.loanEMIEntery[0].BankerId.length > 20 ){ %>
+                    <span>-</span>
+                  <% } else { %>
+                    <%= customer.loanEMIEntery[0].BankerId %>
+                 <% } %>
+
+                </td>
+              </tr>
+            </table>
+          </div>
+          <% } else { %>
+
+            <p style="color: red; font-size: 25px;">Sorry!!! customer don't take any loan from our bank or EMI not started till now </p>
+
+            <% } %>
+        </div>
+        <% } else { %>
+          <p style="color: red; text-align: center; font-size: 20px;" >Sorry!!! the account number don't exist</p> 
+        <% } %>
+        <% } else if( emiDetailsbtn==="allDetails" ){ %>
+          <table id="allLoanDetails" class="allCustomers" >
+            <tr>All EMI Details</tr>
+            <tr>
+              <th></th>
+              <th>Account No</th>
+              <th>Name</th>
+              <th>Current Balance</th>
+              <th>EMI Amount</th>
+              <th>No. of Installments left</th>
+              <th>Next Installment Date</th>
+              <th>Full details</th>
+            </tr>
+            <% customers.forEach(function(customer){ %>
+              <tr>
+                <td>
+                  <img class="ImagTak" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+                <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+                </td>
+                <td>
+                  <%= customer.AccountNo %>
+                </td>
+                <td>
+                  <% if(customer.gender==="Male" ){ %>
+                    Mr. <%= customer.userfName %>
+                      <%= customer.usermName %>
+                        <%= customer.userlName %>
+                          <% } %>
+
+                            <% if(customer.gender==="Female" && customer.marriageStatus==="Married" ){ %>
+                              Mrs. <%= customer.userfName %>
+                                <%= customer.usermName %>
+                                  <%= customer.userlName %>
+                                    <% } %>
+
+                                      <% if(customer.gender==="Female" && customer.marriageStatus==="single" ){ %>
+                                        Miss. <%= customer.userfName %>
+                                          <%= customer.usermName %>
+                                            <%= customer.userlName %>
+                                              <% } %>
+
+                                                <% if(customer.gender==="Other" ){ %>
+                                                  <%= customer.userfName %>
+                                                    <%= customer.usermName %>
+                                                      <%= customer.userlName %>
+                                                        <% } %>
+                </td>
+                <td>
+                  <%= customer.currentTotalAmount %>
+                </td>
+                <td>
+                  <%= customer.loanEMIEntery[0].loanEmiAmount %>
+                </td>
+                <td>
+                  <%= customer.loanEMIEntery[0].noInstallments %>
+                </td>
+                <td>
+                  <%= customer.loanEMIEntery[0].dateIntarestCalculate %>
+                </td>
+                <td><a onclick="myAfterClick()" href="/emiDetail/<%= customer.AccountNo %>/<%= user %>/direct">Details</a></td>
+              </tr>
+   
+              <% }) %>
+          </table>
+          <% } %>
+         
+
+  <%-include("partials/footer")-%>

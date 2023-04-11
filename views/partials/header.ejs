@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:ital,wght@1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- bootstrap -->
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/layout.css">
+  <title>Bank Lynx</title>
+</head> 
+<body onload="myFunction()" >
+
+  <div id="afterClick" >
+    <div class="linekk line-1kk"></div>
+    <div class="linekk line-2kk"></div>
+    <div class="linekk line-3kk"></div>
+    <div class="linekk line-4kk"></div>
+   <div class="linekk line-5kk"></div> 
+</div>
+
+  <div class="top-bar"> 
+    <div class="bargar">
+      <i class="fas fa-bars"></i>
+      <i class="fas fa-times"></i>
+    </div>
+    <div class="mainIcon" >
+       <img src="/img/mainLogo.png" alt="">
+    </div>
+  </div> 
+  <nav class="Mynavk">
+    <div class="nav-iteamk">
+
+      <div class="nav__item" id="<%= bghm %>" >
+        <a onclick="myAfterClick()" id="<%= overviewhm %>" href="/tab/banker/<%= user %>"><i class="fa fa-home"></i> Home</a>
+      </div>
+      <div class="nav__item" id="<%= bgcr %>" >
+        <a onclick="myAfterClick()" id="<%= overviewcr %>" href="/tab/banker/<%= user %>/member"><i class="fas fa-user-plus"></i> Customer Registration</a>
+      </div>
+
+      <label class="nav__label" >Entry</label>
+      <div class="nav__item" id="<%= bgd %>" >
+        <a onclick="myAfterClick()" id="<%= overviewd %>" href="/tab/banker/<%= user %>/deposit"><i class="fas fa-sort-amount-up"></i> Deposit Entry</a>
+      </div>
+      <div class="nav__item" id="<%= bgw %>" >
+        <a onclick="myAfterClick()" id="<%= overvieww %>" href="/tab/banker/<%= user %>/withdrawal"><i class="fas fa-sort-amount-down"></i> Withdrawal Entry</a>
+      </div>
+      <div class="nav__item" id="<%= bgle %>" >
+        <a onclick="myAfterClick()" id="<%= overviewle %>" href="/tab/banker/<%= user %>/loan/NewLoanEntry"><i class="fas fa-hand-holding-usd"></i> Loan Entry</a>
+      </div>
+      <div class="nav__item" id="<%= bgee %>" >
+        <a onclick="myAfterClick()" id="<%= overviewee %>" href="/tab/banker/<%= user %>/loan/EMIentry"><i class="fas fa-percentage"></i> EMI Start</a>
+      </div>
+      <div class="nav__item" id="<%= bgfd %>" >
+        <a onclick="myAfterClick()" id="<%= overviewfd %>" href="/tab/banker/<%= user %>/fd"><i class="fas fa-shield-alt"></i> Fixed Deposit</a>
+      </div>
+
+      <label class="nav__label">Approval</label>
+      <!-- <div class="nav__item" id="<%= bgra %>" >
+        <a id="<%= overviewra %>" href=""><i class="fas fa-user-check"></i> Registration Approval</a>
+      </div> -->
+      <div class="nav__item" id="<%= bgfda %>">
+        <a onclick="myAfterClick()" id="<%= overviewfda %>" href="/tab/banker/<%= user %>/fdApproval"><i class="fas fa-user-shield"></i> FixedDeposit Approval</a>
+      </div>
+      <div class="nav__item" id="<%= bgla %>">
+        <a onclick="myAfterClick()" id="<%= overviewla %>" href="/tab/banker/<%= user %>/LoanApproval"><i class="fas fa-hand-holding"></i> Loan Approval</a>
+      </div>
+      <div class="nav__item" id="<%= bgea %>" >
+        <a onclick="myAfterClick()" id="<%= overviewea %>" href="/tab/banker/<%= user %>/EMIApproval"><i class="fas fa-percent"></i> EMI Approval</a>
+      </div>
+
+      <label class="nav__label">Details</label>
+      <div class="nav__item" id="<%= bgcd %>" >
+        <a onclick="myAfterClick()" onclick="myAfterClick()" id="<%= overviewcd %>" href="/tab/banker/<%= user %>/cmDetails"><i class="fas fa-clipboard-list"></i> Customer Details</a>
+      </div>
+      <div class="nav__item" id="<%= bgtd %>" >
+        <a onclick="myAfterClick()" id="<%= overviewtd %>" href="/tab/banker/<%= user %>/transactiondetails"><i class="fas fa-exchange-alt"></i> Transaction Details</a>
+      </div>
+      <div class="nav__item" id="<%= bgld %>" >
+        <a onclick="myAfterClick()" id="<%= overviewld %>" href="/tab/banker/<%= user %>/Loandetails"><i class="fas fa-server"></i> loan Details</a>
+      </div>
+      <div class="nav__item" id="<%= bged %>" >
+        <a onclick="myAfterClick()" id="<%= overviewed %>" href="/tab/banker/<%= user %>/emidetails"><i class="fas fa-clipboard-check"></i> EMI Details</a>
+      </div>
+    </div>
+
+    <main class="main allMain">

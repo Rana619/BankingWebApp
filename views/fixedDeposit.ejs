@@ -1,0 +1,112 @@
+<%-include("partials/header")-%>
+    <div class="register">
+        <h2>Fixed Deposit</h2>
+        <form spellcheck="false" class="search_form" method="POST" action="/search/<%= user %>">
+          <div>
+            <input name="uniqueAccountNo" class="code" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required />
+            <button class="submit" name="SearchBtn" value="fixedDeposit" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
+
+<% if( fixedDepositBtn === "fixedDepositBtn" ){ %>
+<% if(customer) { %>
+<div class="DepositEntry">
+  <div class="cDetails">
+    <img class="profilePic" src="data:image/<%=customer.passportSizePhoto.contentType%>;base64,
+    <%=customer.passportSizePhoto.data.toString('base64')%>" alt="img">
+    <div class="cInfo">
+
+    <% if(customer.gender === "Male"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Mr. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Female" && customer.marriageStatus === "Married"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Mrs. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Female" && customer.marriageStatus === "single"){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4>Miss. <%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+
+    <% if(customer.gender === "Other" ){ %>
+      <div class="cKey">Name</div>:-
+      <div class="cValue"><h4><%= customer.userfName %> <%= customer.usermName %> <%= customer.userlName %><h4></div>
+    <% } %>
+    
+    
+      </div>
+    <div class="cInfo">
+      <div class="cKey">Account No.</div>:-
+      <div class="cValue"><p><%= customer.AccountNo %></p></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Father's Name</div>:-
+      <div class="cValue">Mr. <%= customer.ffName %> <%= customer.fmName %> <%= customer.flName %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Date Of Birth</div>:-
+      <div class="cValue"><%= customer.dob %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Pan Card No.</div>:-
+      <div class="cValue"><%= customer.panNo %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Phone No.</div>:-
+      <div class="cValue"><%= customer.phone %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Email ID</div>:-
+      <div class="cValue"><%= customer.email %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Voter Card ID</div>:-
+      <div class="cValue"><%= customer.voter %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Adhar Card No.</div>:-
+      <div class="cValue"><%= customer.adhar %></div>
+    </div>
+    <div class="cInfo">
+      <div class="cKey">Address</div>:-
+      <div class="cValue"><%= customer.address %></div>
+    </div>
+
+  </div>
+
+  <div class="dEntry">
+   <h3>Current Amount :- <%= customer.currentTotalAmount %>/-</h3>
+   <form class="dFrom" action="/fixedDiposit/save/<%= user %>" method="POST">
+   <div class="wInfo">
+       <div class="wkey"><h5>Duration</h5></div> :-
+       <div class="wValue"><input name="duration" placeholder="Months" type="number" min="1" autocomplete="off" required></div>
+   </div>
+   <p> <span style="color: red;">*</span>Enter the time period in months</p>
+   <div class="wInfo">
+     <div class="wkey"><h5>Enter Amount</h5></div> :-
+     <div class="wValue"> <input name="fixedAmount" type="number" min="1000" autocomplete="off" required ></div>
+   </div>
+   <input style="display: none;" name="accountNo" value="<%= customer.AccountNo %>" type="text">
+   <input style="display: none;" name="activeAmount" value="<%= customer.currentTotalAmount %>" type="text">
+
+   <div class="wInfo">
+     <div class="wkey"><h5>Enter Interest Rate(%)</h5></div> :-
+     <div class="wValue"> <input name="interest" type="number" autocomplete="off" required ></div>
+   </div>
+
+   <div class="hSign">
+    <img src="data:image/<%=customer.SignatureImg.contentType%>;base64,
+    <%=customer.SignatureImg.data.toString('base64')%>" alt="Signature">
+   </div>
+     <button onclick="myAfterClick()" type="submit">Save</button>
+   </form>
+  </div>
+  <% } else { %>
+    <p style="color: red; text-align: center; font-size: 20px;" >Sorry!!! the account number don't exist</p>
+  <% } %>
+  <% } %>
+</div>
+<%-include("partials/footer")-%>

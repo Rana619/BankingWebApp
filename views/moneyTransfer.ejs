@@ -1,0 +1,60 @@
+<%-include("partials2.o/header")-%>
+
+<div class="upperofMS" ></div>
+<div class="lowerofMS" ></div>
+<form class="transfer" action="/searchCm/transferCm" method="POST">
+    <div  class="inputTr">
+        <h3 class="tHeader">BL Money Transfer</h3>
+        <label for="">Account No.</label>
+        <input id="GivenData1" name="getC" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required >
+        <label for="">Confrom Account No.</label>
+        <input id="GivenData2" name="getCt" type="tel" pattern="[0-9]{13}" title="Incorrect Account Number" placeholder="Account No." autocomplete="off" required >
+        <p id="statement" style="color:red;" ></p>
+        <input style="display: none;" name="sendC" value="<%= user %>" type="text">
+    </div>
+    <% if(customerGet == "no"){ %>
+      <p style="text-align: center; color: red; padding-left:20px; padding-right: 20px; background:sandybrown;" >Sorry!! any account don't find on the entered account no. Try Again</p>
+    <% } %>
+    <div class="searchBtn">
+        <button onclick="myAfterClick()" id="myButton" type="submit">Search</button>
+    </div>
+</form>
+
+<script>
+    let ButtonFiled = document.getElementById("myButton");
+    let inputFiled2k = document.getElementById("GivenData2")
+    let inputFiled1k = document.getElementById("GivenData1")
+
+    inputFiled2k.addEventListener("change", ()=>{
+    let pin1 =  document.getElementById("GivenData1").value;
+    let pin2 =  document.getElementById("GivenData2").value;
+    if( pin1 == pin2 )
+        {
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+  
+        }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="Entered Amount don't match";
+        }
+    });
+
+    inputFiled1k.addEventListener("change", ()=>{
+    let pin1 =  document.getElementById("GivenData1").value;
+    let pin2 =  document.getElementById("GivenData2").value;
+    if( pin1 == pin2 )
+        {
+           ButtonFiled.disabled = false;
+           document.getElementById("statement").innerText="";
+  
+        }else{
+           ButtonFiled.disabled = true;
+           document.getElementById("statement").innerText="Entered Amount don't match";
+        }
+    });
+
+</script>
+
+
+
+<%-include("partials2.o/footer")-%>  

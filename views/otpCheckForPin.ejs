@@ -1,0 +1,17 @@
+<%-include("partials2.o/header")-%>
+<div class="upperofMS" ></div>
+<div class="lowerofMS" ></div>
+<form class="transfer" action="/transferCm/OtpCheck/<%= user %>" method="POST">
+    <div  class="inputTr">
+        <h3 class="tHeader">OTP Verification</h3>
+        <label for="">Enter 7 digit secret key</label>
+        <input name="enteredOtp" type="text" autocomplete="off" required>
+        <input style="display: none;" name="originalOtp" value="<%= OTP %>" type="text">
+        <input style="display: none;" name="accountNo" value="<%=  AccountNo %>" type="text">
+        <input style="display: none;" name="TrPin1" value="<%= TrPin1 %>" type="text">
+    </div>
+    <div class="searchBtn">
+        <button onclick="myAfterClick()" type="submit">Confrom</button>
+    </div>
+</form>
+<%-include("partials2.o/footer")-%>  

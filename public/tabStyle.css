@@ -1,0 +1,303 @@
+body { 
+  margin:0px;
+  padding: 0px;
+  overflow-x: scroll;
+  min-width: 1380px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#afterClick{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(125, 191, 230, 0.2);
+  z-index: 999999;
+}
+.linekk{
+  background-color: rgb(252, 249, 249);
+  width: 7px;
+  height: 40px;
+  margin: 0px 5px;
+  border: none;
+  animation: size 0.8s infinite linear;
+  border-radius: 20px;
+}
+
+.line-1kk{
+  animation-delay: 0.60s;
+}
+.line-2kk{
+  animation-delay: 0.30s;
+}
+.line-3kk{
+  animation-delay: 0s;
+  }
+.line-4kk{
+  animation-delay: 0.30s;
+}
+.line-5kk{
+  animation-delay: 0.60s;
+}
+
+@keyframes size{
+  0%{
+      height: 40px;
+  }
+  25%{
+      height: 60px;
+  }
+  50%{
+      height: 90px;
+  }
+  75%{
+      height: 60px;
+  }
+  100%{
+      height: 40px;
+  }
+} 
+.mainIcon img{
+  height: 50px;
+  width: auto;
+  margin-left: 10px;
+}
+.homeNav{
+  width: 100%;
+  height: 65px;
+  background-color: rgb(27, 189, 189);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.homeNavOption{
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+  width: 65%;
+  margin-right: 35px;
+}
+#updateclass{
+  padding: 0px;
+  margin: 0px;
+}
+#logoutclass{
+  padding: 0px;
+  margin: 0px;
+}
+#logoutclass a{
+  border:5px solid black ;
+  color: black;
+  font-size: 17px;
+  padding: 5px 15px;
+  font-weight: 700;
+  position: relative;
+  bottom: -8px;
+  border-radius: 10px;
+}
+#logoutclass:hover a{
+  background-color: rgb(17, 16, 13);
+  color: white;
+}
+#updateclass a{
+  background-color: rgb(17, 177, 17);
+  font-size: 17px;
+  padding: 9px 15px;
+  position: relative;
+  bottom: -8px;
+  border-radius: 10px;
+}
+#updateclass:hover a{
+  background-color: wheat;
+  color: black;
+}
+.testimonialMain{
+  width: 100%;
+  height: 600px;
+  background-color: rgb(128, 128, 128,);
+  text-align: center;
+} 
+.testimonialMain #carouselExampleCaptions{
+  height: 600px;
+  width: 100%;
+}
+.carousel-item{
+  background-color: rgba(43, 27, 27, 0.6);
+}
+.carousel-item img{
+  width: 100%;
+  height: 600px;
+}
+.carousel-caption{
+  background-color: rgba(48, 40, 185, 0.8);
+  top: 30%;
+  height: 250px;
+  width: 350px;
+}
+.carousel-caption{
+  background-color:rgba(0, 0, 0, 0.8) ;
+  width: 30%;
+  height: 45%;
+  padding: 10px;
+  margin-bottom: 70px
+}
+.carousel-caption h6{
+text-align: left;
+padding-left: 10px;
+}
+.carousel-caption h5{
+  color: rgb(105, 238, 105);
+}
+.dropbtn {
+  color: white;
+  width: 100%;
+  font-size: 13px;
+  border: none;
+  padding-top:10px ;
+  padding-bottom: 10px;
+  background: none;
+  position: relative;
+}
+.dropbtn a{
+  text-decoration: none;
+  color: white;
+}
+.dropbtn .fa-angle-down{
+  position: absolute;
+  bottom: 13px;
+  right: 20px;
+  font-size: 20px;
+  transition: transform 0.3s ease-in;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 22%;
+  margin-right: -15px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 40px;
+  min-width: 160px;
+  z-index: 1;
+}
+.dropdown-content #takarrow{
+  margin: 0px;
+  padding: 0px;
+  background: rgba(255, 0, 0,0);
+  max-height: 25px;
+}
+#takarrow i{
+color: white;
+font-size: 50px;
+padding: 0px;
+margin: 0px;
+position: relative;
+bottom: 5px;
+left: 50px;
+}
+#iconBottom{
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+  height: 10px;
+}
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: black;
+  font-size: 12px;
+  background-color: white;
+}
+.dropdown:hover .fa-angle-down{
+  transform: rotate(180deg);
+}
+.dropdown-content a:hover {
+  background-color: rgb(129, 115, 115) ;
+  color: white;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+   color: grey;
+}
+.bankOffer{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: teal;
+  color: white;
+  padding: 140px 50px;
+}
+.bankOffer h5{
+  color: rgb(180, 180, 214);
+  margin-bottom: 30px;
+}
+.Offers{
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-top: 40px;
+}
+.Offers div{
+   width: 22%;
+   height: 195px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding: 15px;
+}
+.Offers div i{
+  font-size: 40px;
+  border-radius: 50%;
+  background-color: white;
+  color: teal;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.Offers div h4{
+  text-align: center;
+  font-size: 20px;
+}
+.sideBar{
+  border-left: 2px solid rgb(241, 241, 245);
+}
+#contectAndAbout{
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: center;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+#contectAndAbout div{
+  margin-left: 80px;
+}
+#contectAndAbout div #iconsk{
+  margin: 0px;
+}
+#iconsk i{
+  font-size: 30px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+#footer{
+  background-color: teal;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#footer p{
+  text-align: center;
+  color: white;
+}
+
+
+
